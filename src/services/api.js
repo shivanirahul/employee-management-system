@@ -1,15 +1,13 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000'; 
-
 const apiClient = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Interceptor to automatically attach the JWT token to every request
+// Your interceptor logic is perfect—keep it exactly like this:
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
