@@ -1,4 +1,4 @@
-function EmployeeTable() {
+export default function EmployeeTable() {
 
      const employees = [
     {
@@ -61,5 +61,3 @@ function EmployeeTable() {
     </table>
   );
 }
-
-export default EmployeeTable;
