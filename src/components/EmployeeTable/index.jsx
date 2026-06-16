@@ -1,4 +1,4 @@
-function EmployeeTable() {\
+function EmployeeTable() {
 
      const employees = [
     {
