@@ -7,6 +7,7 @@ import EmployeeEdit from '../pages/EmployeeEdit';
 import EmployeeView from '../pages/EmployeeView';
 // Import the guard component you built earlier:
 import ProtectedRoute from '../components/ProtectedRoute';
+import EmployeeAddPage from "../pages/EmployeeAddPage";
 
 export default function AppRoutes() {
   return (
@@ -45,6 +46,7 @@ export default function AppRoutes() {
             <EmployeeView />
           </ProtectedRoute>
         } />
+        <Route path="/employee-add" element={<EmployeeAddPage />} />
 
         {/* Redirect any unknown paths to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />
