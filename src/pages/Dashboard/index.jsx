@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../../services/authService';
-import './dashboardStyles.css'; // 🎨 Importing your external CSS file
+import './dashboardStyles.css'; 
 
 const Dashboard = () => {
   const navigate = useNavigate();
