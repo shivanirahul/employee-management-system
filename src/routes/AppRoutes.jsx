@@ -45,7 +45,7 @@ export default function AppRoutes() {
             <EmployeeView />
           </ProtectedRoute>
         } />
-        <Route path="/employee-add" element={<EmployeeAddPage />} />
+        
 
         {/* Redirect any unknown paths to login */}
         <Route path="*" element={<Navigate to="/login" replace />} />

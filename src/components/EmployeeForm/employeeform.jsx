@@ -169,4 +169,3 @@ export default function EmployeeForm() {
     </div>
   );
 }
-export { default } from './employeeform';
