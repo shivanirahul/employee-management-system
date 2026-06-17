@@ -2,7 +2,6 @@ import apiClient from './api';
 
 export const authService = {
   login: async (username, password) => {
-    // Hits POST http://localhost:3000/api/login
     const response = await apiClient.post('/api/login', { username, password });
     
     // Assumes backend returns { token: "your-jwt-string" }
