@@ -16,7 +16,6 @@ const Dashboard = () => {
       <h2 className="dashboard-title">📋 Dashboard (Protected Area)</h2>
       <p>Welcome! If you see this, your JWT authentication token is working.</p>
       
-      {/* 🛠️ CLEAN EXTERNAL STYLE BUTTON */}
       <button onClick={handleLogout} className="logout-button">
         Log Out
       </button>
