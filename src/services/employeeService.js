@@ -1,4 +1,4 @@
-import apiClient from './apiClient';
+import apiClient from './api';
 
 /**
  * All employee-related API calls live here, built on top of the shared
