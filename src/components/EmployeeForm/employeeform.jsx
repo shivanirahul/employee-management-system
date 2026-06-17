@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import PersonalInfoStep from './PersonalInfoStep';
-import ContactDetailsStep from './ContactDetailsStep';
-import JobDetailsStep from './JobDetailsStep';
+import PersonalInfoStep from './personalinfo';
+import ContactDetailsStep from './contactdetails';
+import JobDetailsStep from './job_details';
+import './employeeform.css';
 import { getCountries, getDesignations } from '../../services/masterService';
 import { createEmployee } from '../../services/employeeService';
-import './EmployeeForm.css';
+
 
 const initialFormData = {
   firstName: '',
@@ -168,3 +169,4 @@ export default function EmployeeForm() {
     </div>
   );
 }
+export { default } from './employeeform';
