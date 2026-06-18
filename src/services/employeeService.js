@@ -1,18 +1,15 @@
-import apiClient from './apiClient';
+import apiClient from './api';
 
-/**
- * All employee-related API calls live here, built on top of the shared
- * apiClient your teammate set up (baseURL + auth token interceptor).
- *
- * Adjust the endpoint paths below ('/countries', '/designations', '/employees')
- * to match whatever routes your teammate actually exposed on the backend.
- */
+export const getCountries = () => apiClient.get('/api/countries');
 
-// GET list of countries -> used to populate the Country dropdown
-export const getCountries = () => apiClient.get('/countries');
+export const getDesignations = () => apiClient.get('/api/designations');
 
-// GET list of designations -> used to populate the Designation dropdown
-export const getDesignations = () => apiClient.get('/designations');
+export const getCourses = () => apiClient.get('/api/courses');
 
-// POST a new employee document to MongoDB
-export const createEmployee = (employeeData) => apiClient.post('/employees', employeeData);
+export const getSpecializations = () => apiClient.get('/api/specializations');
+
+export const getInstitutions = () => apiClient.get('/api/institutions');
+
+export const getCompanies = () => apiClient.get('/api/companies');
+
+export const createEmployee = (employeeData) => apiClient.post('/api/employees', employeeData);

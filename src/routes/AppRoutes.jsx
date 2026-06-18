@@ -2,20 +2,17 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import EmployeeList from '../pages/EmployeeList';
-import EmployeeAdd from '../pages/Employeeadd';
+import EmployeeAdd from '../pages/EmployeeAdd/index';
 import EmployeeEdit from '../pages/EmployeeEdit';
 import EmployeeView from '../pages/EmployeeView';
-// Import the guard component you built earlier:
 import ProtectedRoute from '../components/ProtectedRoute';
 
 export default function AppRoutes() {
   return (
     <Router>
       <Routes>
-        {/* Public Route */}
         <Route path="/login" element={<Login />} />
 
-        {/* Core Application Routes (Now securely locked!) */}
         <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />

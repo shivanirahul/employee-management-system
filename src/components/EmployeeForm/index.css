@@ -1,0 +1,205 @@
+/* ============================================================
+   EmployeeForm.css
+   Written against the EXISTING markup — no new classNames needed.
+   Uses :has() to tell "plain field" .form-group divs (First Name,
+   Email, etc.) apart from "entry card" .form-group divs (the ones
+   that start with a <strong> tag, used by Education / Work
+   Experience rows) — that's how the two get different layouts
+   without touching the component file. :has() is supported in all
+   current major browsers (Chrome, Edge, Firefox, Safari).
+   ============================================================ */
+
+.employee-form {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 16px 64px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #2a1b54;
+  box-sizing: border-box;
+}
+
+/* ===== Backend error banner ===== */
+.backend-error-alert {
+  background: #fdecef;
+  border: 1px solid #f5c2cb;
+  color: #b3273f;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+/* ===== Each section ("Personal Information", "Education", etc.)
+   becomes its own white card, laid out as a 2-column grid so plain
+   fields sit two-per-row, like First Name / Last Name. ===== */
+.form-section {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.08);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 18px;
+  align-items: start;
+}
+
+/* Section title spans both columns and gets a divider underneath */
+.form-section > h3 {
+  grid-column: 1 / -1;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2a1b54;
+  margin: 0 0 4px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e7e0f5;
+}
+
+/* The "+ Add" button (Education / Work Experience) is a direct
+   child of .form-section, so this only matches that button —
+   it does NOT match the trash buttons, which live one level
+   deeper inside each entry's .form-group. */
+.form-section > button[type='button'] {
+  grid-column: 1 / -1;
+  justify-self: end;
+  background: #f3eafe;
+  border: 1px solid #d9c2f5;
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.form-section > button[type='button']:hover {
+  background: #ebdcfb;
+}
+
+/* "No education records yet..." / "No work experience yet..." */
+.form-section > p {
+  grid-column: 1 / -1;
+  color: #6b6680;
+  font-style: italic;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ===== Plain field group (label + one input/select/textarea) =====
+   Stacks label above its field. Left to auto-place into the
+   2-column grid above, so two of these naturally sit side by side. */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b6680;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea {
+  background: #faf7fe;
+  border: 1px solid #e4dcf5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #2a1b54;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-section input:focus,
+.form-section select:focus,
+.form-section textarea:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+.form-section textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.error-text {
+  color: #b3273f;
+  font-size: 12px;
+}
+
+/* ===== Entry-card field group (Education #1 / Experience #1) =====
+   Matched via :has(> strong) — only these groups start with a
+   <strong> tag. Forced to span the full row so entries stack
+   one-per-row instead of two-per-row like plain fields do. */
+.form-group:has(> strong) {
+  grid-column: 1 / -1;
+  background: #faf7fe;
+  border: 1px solid #e7e0f5;
+  border-radius: 14px;
+  padding: 20px 24px;
+  gap: 10px;
+}
+
+.form-group strong {
+  font-size: 14px;
+  color: #2a1b54;
+}
+
+/* Trash button nested inside each entry — one level deeper than
+   the "+ Add" button above, so it gets its own distinct style. */
+.form-group > button[type='button'] {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #9089a8;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-top: -6px;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.form-group > button[type='button']:hover {
+  color: #e0556b;
+  background: rgba(224, 85, 107, 0.08);
+}
+
+/* ===== Submit button ===== */
+.submit-button {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 36px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.28);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.submit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(124, 58, 237, 0.34);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .form-section {
+    grid-template-columns: 1fr;
+    padding: 22px 20px;
+  }
+}
