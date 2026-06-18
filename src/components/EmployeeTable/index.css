@@ -1,40 +1,45 @@
-/* EmployeeTable styles
-   All colors are explicit (no "inherit") so this won't break under a dark-mode global theme.
-   Edit freely — class names are referenced as-is from EmployeeTable.jsx, so renaming
-   them here requires renaming them there too. */
+/* EmployeeTable styles */
+
+:root {
+  --et-purple: #7c3aed;
+  --et-purple-light: #f3e8ff;
+  --et-border: #e5d9f7;
+  --et-text: #1f2937;
+  --et-text-muted: #6b7280;
+  --et-text-faint: #9ca3af;
+  --et-radius: 10px;
+}
 
 .et-page {
   background: linear-gradient(135deg, #f3e8ff, #ede9fe);
   padding: 2rem;
   border-radius: 16px;
   font-family: sans-serif;
-  color-scheme: light; /* prevents native dropdowns from inheriting a dark browser theme */
+  color-scheme: light;
 }
 
-/* Header row */
 .et-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
   flex-wrap: wrap;
   gap: 12px;
+  margin-bottom: 1.5rem;
 }
 
 .et-title {
   font-size: 22px;
   font-weight: 700;
   margin: 0;
-  color: #1f2937;
+  color: var(--et-text);
 }
 
 .et-subtitle {
   font-size: 13px;
-  color: #6b7280;
+  color: var(--et-text-muted);
   margin: 4px 0 0;
 }
 
-/* Toolbar (search + sort) */
 .et-toolbar {
   display: flex;
   gap: 8px;
@@ -50,59 +55,57 @@
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: #9ca3af;
+  color: var(--et-text-faint);
   pointer-events: none;
 }
 
-.et-input {
-  padding: 8px 12px 8px 36px;
-  border: 1px solid #e5d9f7;
-  border-radius: 10px;
+.et-input,
+.et-select,
+.et-icon-btn,
+.et-btn {
+  border: 1px solid var(--et-border);
+  border-radius: var(--et-radius);
   font-size: 13px;
   background: #fff;
-  color: #1f2937;
+  color: var(--et-text);
+}
+
+.et-input {
+  padding: 8px 12px 8px 34px;
   width: 260px;
 }
 
 .et-input::placeholder {
-  color: #9ca3af;
+  color: var(--et-text-faint);
 }
 
 .et-select {
   padding: 8px 28px 8px 12px;
-  border: 1px solid #e5d9f7;
-  border-radius: 10px;
-  font-size: 13px;
-  background: #fff;
-  color: #1f2937;
 }
 
-.et-select option {
-  color: #1f2937;
-  background: #fff;
+.et-icon-btn,
+.et-btn {
+  cursor: pointer;
 }
 
 .et-icon-btn {
-  border: 1px solid #e5d9f7;
-  background: #fff;
-  color: #1f2937;
-  border-radius: 10px;
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
-.et-icon-btn:hover {
+.et-icon-btn:hover,
+.et-btn:hover {
   background: #f9f5ff;
 }
 
-/* Card grid */
+/* Cards */
 .et-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+  justify-content: start;
   gap: 16px;
 }
 
@@ -116,7 +119,6 @@
 .et-card-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   margin-bottom: 12px;
 }
 
@@ -131,47 +133,36 @@
   height: 38px;
   border-radius: 50%;
   color: #fff;
+  font-weight: 600;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 13px;
   flex-shrink: 0;
 }
 
 .et-name {
   font-weight: 600;
   font-size: 15px;
-  color: #1f2937;
+  color: var(--et-text);
 }
 
 .et-designation {
   font-size: 12.5px;
-  color: #9ca3af;
+  color: var(--et-text-faint);
 }
 
 .et-badge {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 20px;
   white-space: nowrap;
 }
 
-.et-badge-male {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-
-.et-badge-female {
-  background: #fce7f3;
-  color: #be185d;
-}
-
-.et-badge-other {
-  background: #f1f5f9;
-  color: #475569;
-}
+.et-badge-male { background: #dbeafe; color: #1d4ed8; }
+.et-badge-female { background: #fce7f3; color: #be185d; }
+.et-badge-other { background: #f1f5f9; color: #475569; }
 
 .et-contact {
   font-size: 13px;
@@ -195,54 +186,22 @@
   padding-top: 12px;
 }
 
-.et-btn {
-  border: 1px solid #e5d9f7;
-  background: #fff;
-  color: #1f2937;
-  padding: 6px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-}
+.et-btn { padding: 6px 14px; font-weight: 500; }
+.et-btn:disabled { opacity: 0.45; cursor: default; }
 
-.et-btn:hover {
-  background: #f9f5ff;
-}
+.et-btn-edit { background: var(--et-purple-light); color: var(--et-purple); border-color: #e9d5ff; }
+.et-btn-edit:hover { background: #ead9fc; }
 
-.et-btn:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
-
-.et-btn-edit {
-  background: #f3e8ff;
-  color: #7c3aed;
-  border-color: #e9d5ff;
-}
-
-.et-btn-edit:hover {
-  background: #ead9fc;
-}
-
-.et-btn-delete {
-  background: #fce7e7;
-  color: #dc2626;
-  border-color: #fbd5d5;
-}
-
-.et-btn-delete:hover {
-  background: #fad3d3;
-}
+.et-btn-delete { background: #fce7e7; color: #dc2626; border-color: #fbd5d5; }
+.et-btn-delete:hover { background: #fad3d3; }
 
 .et-empty {
   grid-column: 1 / -1;
   text-align: center;
   padding: 3rem;
-  color: #9ca3af;
+  color: var(--et-text-faint);
 }
 
-/* Pagination */
 .et-pagination {
   display: flex;
   justify-content: center;
@@ -253,6 +212,17 @@
 
 .et-page-count {
   font-size: 13px;
-  color: #6b7280;
+  color: var(--et-text-muted);
   padding: 0 10px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
