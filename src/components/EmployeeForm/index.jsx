@@ -10,6 +10,8 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
     dob: '',
     email: '',
     phone: '',
+    postalAddress: '', // <-- Added
+    city: '',          // <-- Added
     countryId: '',
     designationId: '',
     joiningDate: '',
@@ -40,13 +42,6 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         ]);
 
         console.log("--- API RAW RESPONSE SUCCESS ---");
-        console.log("Countries Server Output:", countriesRes);
-        console.log("Designations Server Output:", designationsRes);
-        console.log("Courses Server Output:", coursesRes);
-        console.log("Specializations Server Output:", specializationsRes);
-        console.log("Institutions Server Output:", institutionsRes);
-        console.log("Companies Server Output:", companiesRes);
-        
         
         const cData = countriesRes?.data?.data || countriesRes?.data || countriesRes || [];
         const dData = designationsRes?.data?.data || designationsRes?.data || designationsRes || [];
@@ -71,13 +66,6 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
 
       } catch (err) {
         console.error("--- DETECTED PROXY / BACKEND CRASH ---");
-        console.error("Error Message:", err.message);
-        if (err.response) {
-          console.error("Server Status Code:", err.response.status);
-          console.error("Server Returned Data:", err.response.data);
-        } else {
-          console.error("No response received. The frontend cannot see the backend server.");
-        }
         setCountries([]);
         setDesignations([]);
         setCourses([]);
@@ -145,17 +133,40 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
   return (
     <form onSubmit={handleSubmit} className="employee-form">
       {backendError && <div className="backend-error-alert">{backendError}</div>}
+      
+      {/* Container row holding the back button tightly next to the title text */}
+      <div className="form-header">
+        <button type="button" className="back-btn" onClick={() => window.history.back()}>
+          ← Back
+        </button>
+        <h2> Add New Employee</h2>
+      </div>
 
+      {/* Personal Information */}
       <div className="form-section">
-        <h3>👤 Personal Information</h3>
+        <h3> Personal Information</h3>
         <div className="form-group">
-          <label>First Name *</label>
-          <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+          <label>First Name <span style={{ color: '#dc2626' }}>*</span></label>
+          <input 
+            type="text" 
+            name="firstName" 
+            placeholder="e.g. Jennifer"
+            value={formData.firstName} 
+            onChange={handleChange} 
+            className={errors.firstName ? 'input-error' : ''} 
+          />
           {errors.firstName && <span className="error-text">{errors.firstName}</span>}
         </div>
         <div className="form-group">
-          <label>Last Name *</label>
-          <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+          <label>Last Name <span style={{ color: '#dc2626' }}>*</span></label>
+          <input 
+            type="text" 
+            name="lastName" 
+            placeholder="e.g. Doe"
+            value={formData.lastName} 
+            onChange={handleChange} 
+            className={errors.lastName ? 'input-error' : ''} 
+          />
           {errors.lastName && <span className="error-text">{errors.lastName}</span>}
         </div>
         <div className="form-group">
@@ -175,18 +186,53 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         </div>
       </div>
 
+      
+      {/* Contact Information */}
       <div className="form-section">
-        <h3>📞 Contact Information</h3>
+        <h3> Contact Information</h3>
         <div className="form-group">
-          <label>Email Address *</label>
-          <input type="text" name="email" value={formData.email} onChange={handleChange} />
+          <label>Email Address <span style={{ color: '#dc2626' }}>*</span></label>
+          <input 
+            type="text" 
+            name="email" 
+            placeholder="e.g. Jennie09@gmail.com" 
+            value={formData.email} 
+            onChange={handleChange} 
+            className={errors.email ? 'input-error' : ''} 
+          />
           {errors.email && <span className="error-text">{errors.email}</span>}
         </div>
+        
         <div className="form-group">
           <label>Phone Number </label>
           <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
           {errors.phone && <span className="error-text">{errors.phone}</span>}
         </div>
+
+        {/* --- Added Postal Address --- */}
+        <div className="form-group">
+          <label>Postal Address </label>
+          <input 
+            type="text" 
+            name="postalAddress" 
+            placeholder="Street/Building/Area" 
+            value={formData.postalAddress} 
+            onChange={handleChange} 
+          />
+        </div>
+
+        {/* --- Added City --- */}
+        <div className="form-group">
+          <label>City </label>
+          <input 
+            type="text" 
+            name="city" 
+            placeholder="e.g. Kochi" 
+            value={formData.city} 
+            onChange={handleChange} 
+          />
+        </div>
+
         <div className="form-group">
           <label>Country </label>
           <select name="countryId" value={formData.countryId} onChange={handleChange}>
@@ -201,8 +247,9 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         </div>
       </div>
 
+      {/* Employment Information */}
       <div className="form-section">
-        <h3>💼 Employment Information</h3>
+        <h3> Employment Information</h3>
         <div className="form-group">
           <label>Designation </label>
           <select name="designationId" value={formData.designationId} onChange={handleChange}>
@@ -222,17 +269,26 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         </div>
         <div className="form-group">
           <label>Salary </label>
-          <input type="number" name="salary" value={formData.salary} onChange={handleChange} />
+          <input 
+            type="number" 
+            name="salary" 
+            placeholder="e.g. 30000" 
+            value={formData.salary} 
+            onChange={handleChange} 
+            className={errors.salary ? 'input-error' : ''} 
+          />
           {errors.salary && <span className="error-text">{errors.salary}</span>}
         </div>
-      </div>
+      </div> {/* <-- Added missing closing div here */}
 
+      {/* Education */}
       <div className="form-section">
-        <h3>🎓 Education</h3>
+        <h3>Education</h3>
         <button type="button" onClick={addEducation}>+ Add</button>
 
-        {education.length === 0 && <p>No education records yet. Click Add to include one.</p>}
-
+        {education.length === 0 && (
+          <p className="empty-notice-text">No education records yet. Click Add to include one.</p>
+        )}
         {education.map((edu, index) => (
           <div className="form-group" key={edu.id}>
             <strong>Education #{index + 1}</strong>{' '}
@@ -273,11 +329,14 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         ))}
       </div>
 
+      {/* Work Experience */}
       <div className="form-section">
-        <h3>💼 Work Experience</h3>
+        <h3> Work Experience</h3>
         <button type="button" onClick={addExperience}>+ Add</button>
 
-        {workExperience.length === 0 && <p>No work experience yet. Click Add to include one.</p>}
+        {workExperience.length === 0 && (
+          <p className="empty-notice-text">No work experience yet. Click Add to include one.</p>
+        )}
 
         {workExperience.map((exp, index) => (
           <div className="form-group" key={exp.id}>
@@ -300,7 +359,6 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
               onChange={(e) => updateExperience(exp.id, 'lastDesignation', e.target.value)}
             />
 
-             
             <label>Duration (Months)</label>
             <input
               type="number"
