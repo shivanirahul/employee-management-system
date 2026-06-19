@@ -120,16 +120,39 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      onSubmit({
-        ...formData,
-        education: education.map(({ id, ...rest }) => rest),
-        workExperience: workExperience.map(({ id, ...rest }) => rest),
-      });
-    }
-  };
+  e.preventDefault();
+  if (validateForm()) {
+    const payload = {
+      FirstName:     formData.firstName,
+      LastName:      formData.lastName,
+      Gender:        formData.gender,
+      DOB:           formData.dob,
+      PersonalEmail: formData.email,
+      MobileNumber:  formData.phone,
+      PostalAddress: formData.postalAddress,
+      City:          formData.city,
+      Country:     formData.countryId || undefined,
+      Designation: formData.designationId || undefined,
+      BasicPay:      Number(formData.salary),
 
+      Education: education.map(({ id, ...e }) => ({
+        Course:         e.course || undefined,
+        Specialization: e.specialization || undefined,
+        Institution:    e.institution || undefined,
+        Grade:          e.grade ? Number(e.grade) : undefined,
+  })),
+
+  WorkExperience: workExperience.map(({ id, ...w }) => ({
+  Company:         w.company || undefined,
+  LastDesignation: w.lastDesignation || undefined,
+  DurationMonths:  w.duration ? Number(w.duration) : undefined,
+  Remarks:         w.remarks,
+  })),
+    };
+
+    onSubmit(payload);
+  }
+};
   return (
     <form onSubmit={handleSubmit} className="employee-form">
       {backendError && <div className="backend-error-alert">{backendError}</div>}

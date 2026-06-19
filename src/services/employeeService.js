@@ -12,4 +12,4 @@ export const getInstitutions = () => apiClient.get('/api/institutions');
 
 export const getCompanies = () => apiClient.get('/api/companies');
 
-export const createEmployee = (employeeData) => apiClient.post('/api/employees', employeeData);
+export const createEmployee = (employeeData) => apiClient.post('/api/employee', employeeData);

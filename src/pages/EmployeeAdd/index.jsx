@@ -7,24 +7,19 @@ export default function EmployeeAdd() {
   const navigate = useNavigate();
   const [backendError, setBackendError] = useState('');
 
-  const handleFormSubmit = async (formData) => {
+  const handleSubmit = async (formData) => {
     try {
-      setBackendError('');
-      const response = await createEmployee(formData);
-      
-      if (response) {
-        navigate('/dashboard/employees');
-      }
+      await createEmployee(formData);
+      navigate('/employees'); // redirect to list after success
     } catch (err) {
-      console.error("Failed to save employee to MongoDB:", err);
-      setBackendError(err.response?.data?.message || 'Failed to save employee record.');
+      setBackendError(err.response?.data?.message || 'Failed to save employee.');
     }
   };
 
   return (
     <div className="page-container" style={{ padding: '20px' }}>
   
-      <EmployeeForm onSubmit={handleFormSubmit} backendError={backendError} />
+    return <EmployeeForm onSubmit={handleSubmit} backendError={backendError} />;
     </div>
   );
 }
