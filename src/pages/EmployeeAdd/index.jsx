@@ -1,3 +1,3 @@
 export default function EmployeeAdd() {
-  return <div>Employee Add Page Placeholder</div>;
+  return <div>Employee Add Page</div>;
 }

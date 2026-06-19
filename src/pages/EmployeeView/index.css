@@ -1,0 +1,194 @@
+/* ===== Page wrapper ===== */
+.ev-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #2a1b54;
+}
+
+/* ===== Loading / Error states ===== */
+.ev-loading,
+.ev-error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 16px;
+  color: #6b6680;
+}
+
+.ev-error { color: #b3273f; }
+
+/* ===== Header ===== */
+.ev-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ev-back-btn {
+  background: #f3eafe;
+  border: 1px solid #d9c2f5;
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.ev-back-btn:hover { background: #ebdcfb; }
+
+.ev-title-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.ev-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.ev-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #2a1b54;
+}
+
+.ev-sub {
+  font-size: 14px;
+  color: #7c3aed;
+  margin: 4px 0 0;
+  font-weight: 500;
+}
+
+.ev-edit-btn {
+  margin-left: auto;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.ev-edit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.32);
+}
+
+/* ===== Section cards ===== */
+.ev-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.08);
+  padding: 28px 32px;
+}
+
+.ev-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2a1b54;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e7e0f5;
+}
+
+/* ===== Field grid ===== */
+.ev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+
+.ev-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ev-field-full {
+  grid-column: 1 / -1;
+}
+
+.ev-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9089a8;
+}
+
+.ev-value {
+  font-size: 15px;
+  color: #2a1b54;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+/* ===== Education / Experience entry cards ===== */
+.ev-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ev-entry-card {
+  background: #faf7fe;
+  border: 1px solid #e7e0f5;
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+
+.ev-entry-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 16px;
+}
+
+/* ===== Empty state ===== */
+.ev-empty {
+  color: #6b6680;
+  font-style: italic;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .ev-grid {
+    grid-template-columns: 1fr;
+  }
+  .ev-card {
+    padding: 22px 20px;
+  }
+  .ev-edit-btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
