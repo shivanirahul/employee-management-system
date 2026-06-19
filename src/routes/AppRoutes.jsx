@@ -17,9 +17,9 @@ export default function AppRoutes() {
 
         {/* Core Application Routes (Now securely locked!) */}
         <Route path="/dashboard" element={
-          <ProtectedRoute>
+          <protectedRoute>
             <Dashboard />
-          </ProtectedRoute>
+          </protectedRoute>
         } />
         
         <Route path="/employees" element={

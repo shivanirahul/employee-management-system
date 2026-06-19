@@ -1,3 +1,9 @@
-export default function Dashboard() {
-  return <div>Dashboard Page Placeholder</div>;
-}
+import Dashboard from "./Dashboard";
+
+export default Dashboard;
+
+
+
+
+
+
