@@ -18,8 +18,7 @@ export default function EmployeeAdd() {
 
   return (
     <div className="page-container" style={{ padding: '20px' }}>
-  
-    return <EmployeeForm onSubmit={handleSubmit} backendError={backendError} />;
+      <EmployeeForm onSubmit={handleSubmit} backendError={backendError} />
     </div>
   );
 }
