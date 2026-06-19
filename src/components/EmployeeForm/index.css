@@ -1,3 +1,17 @@
+/* =========================================================
+   135deg Soft Pink / Lavender Palette Form Stylesheet
+   ========================================================= */
+
+/* =========================================================
+   1. MAIN PAGE LAYOUT & GRADIENT CANVAS
+   ========================================================= */
+body {
+  background: linear-gradient(135deg, #FFF0F5, #E6E6FA);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
 .employee-form {
   max-width: 880px;
   margin: 0 auto;
@@ -9,7 +23,6 @@
   box-sizing: border-box;
 }
 
-
 /* =========================================================
    2. DESIGN HEADER: LEFT BACK BUTTON & CENTERED TITLE
    ========================================================= */
@@ -18,7 +31,7 @@
   align-items: center !important;
   justify-content: center !important; 
   position: relative !important;      
-  max-width: 760px !important;        
+  max-width: 880px !important;        
   margin: 0 auto !important;             
   padding: 10px 4px !important;
   margin-bottom: 36px !important;     
@@ -27,8 +40,38 @@
 
 .employee-form .form-header .back-btn {
   position: absolute !important;
-  left: 4px !important;               
+  left: 4px !important;                
   margin: 0 !important;
+  
+  /* Reset form input styles that leak into button layout */
+  height: auto !important;
+  width: auto !important;
+  background: #ffffff !important;
+  border: 2px solid #eae5f5 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #5c527a !important; 
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.06) !important; 
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.employee-form .form-header .back-btn:hover {
+  color: #000000 !important; 
+  border-color: #d9c2f5 !important;
+  background: #fcfaff !important;
+  transform: translateX(-2px) !important; 
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16) !important; 
+}
+
+.employee-form .form-header .back-btn:active {
+  transform: translateX(0) !important;
 }
 
 .employee-form .form-header h2 {
@@ -41,36 +84,6 @@
   text-align: center !important;
 }
 
-/* Interactive Back Button Styling Elements */
-.back-btn {
-  background: #ffffff;
-  border: 2px solid #eae5f5;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #5c527a; 
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.06); 
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.back-btn:hover {
-  color: #000000 !important; 
-  border-color: #d9c2f5 !important;
-  background: #fcfaff !important;
-  transform: translateX(-2px); 
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16) !important; 
-}
-
-.back-btn:active {
-  transform: translateX(0);
-}
-
 /* =========================================================
    3. WHITE LAYOUT CARDS WITH GENTLE PURPLE BORDERS
    ========================================================= */
@@ -81,7 +94,6 @@
   box-shadow: 0 4px 20px rgba(109, 40, 217, 0.05) !important; 
   margin-bottom: 24px !important;
   padding: 32px !important;
->>>>>>> 2bcb3c35f6e7e372bc27e3b5fffa9bbed996c191
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 24px;
@@ -129,11 +141,9 @@
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16); 
 }
 
-
 /* =========================================================
    4. INPUT FIELD LABELS & MEDIUM TYPOGRAPHY CONTROLS
    ========================================================= */
->>>>>>> 2bcb3c35f6e7e372bc27e3b5fffa9bbed996c191
 .form-group {
   display: flex;
   flex-direction: column;
@@ -187,20 +197,9 @@
   box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14) !important; 
 }
 
-<<<<<<< HEAD
-.form-section textarea {
-  resize: vertical;
-  min-height: 64px;
-}
-
-.error-text {
-  color: #b3273f;
-  font-size: 12px;
-}
-
-/* ===== Entry-card field group (Education #1 / Experience #1) =====*/
-
-
+/* =========================================================
+   5. EDUCATION & WORK EXPERIENCE SUB-TRACK CARDS
+   ========================================================= */
 .form-group:has(> strong) {
   grid-column: 1 / -1;
   background: #ffffff;
@@ -344,9 +343,6 @@
 }
 
 /* =========================================================
-   9. GLOBAL PLACEHOLDER COLOR OVERRIDES (Works on Desktop & Mobile)
-   ========================================================= */
-/* =========================================================
    9. GLOBAL PLACEHOLDER COLOR & WEIGHT OVERRIDES
    ========================================================= */
 .employee-form input::placeholder,
@@ -370,4 +366,14 @@
   color: #000000 !important;
   font-weight: 400 !important;
   opacity: 1 !important;
+}
+
+/* =========================================================
+   10. EXPLICIT DROPDOWN POPUP LIST OPTIONS REPAIR
+   ========================================================= */
+/* Targets select elements' custom dropdown text popup options safely */
+.employee-form select option {
+  background-color: #ffffff !important; 
+  color: #000000 !important;
+  font-weight: 400 !important;
 }

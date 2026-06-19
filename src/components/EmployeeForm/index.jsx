@@ -10,8 +10,8 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
     dob: '',
     email: '',
     phone: '',
-    postalAddress: '', // <-- Added
-    city: '',          // <-- Added
+    postalAddress: '', 
+    city: '',          
     countryId: '',
     designationId: '',
     joiningDate: '',
@@ -193,14 +193,17 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
           {errors.lastName && <span className="error-text">{errors.lastName}</span>}
         </div>
         <div className="form-group">
-          <label>Gender </label>
-          <select name="gender" value={formData.gender} onChange={handleChange}>
+          <label>Gender</label>
+          <select 
+            name="gender" 
+            value={formData.gender} 
+            onChange={handleChange}
+          >
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
           </select>
-          {errors.gender && <span className="error-text">{errors.gender}</span>}
         </div>
         <div className="form-group">
           <label>Date of Birth </label>
@@ -209,7 +212,6 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         </div>
       </div>
 
-      
       {/* Contact Information */}
       <div className="form-section">
         <h3> Contact Information</h3>
@@ -257,16 +259,19 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         </div>
 
         <div className="form-group">
-          <label>Country </label>
-          <select name="countryId" value={formData.countryId} onChange={handleChange}>
+          <label>Country</label>
+          <select 
+            name="countryId" 
+            value={formData.countryId} 
+            onChange={handleChange}
+          >
             <option value="">Select Country</option>
             {countries && countries.map((c) => (
               <option key={c._id || c.id} value={c._id || c.id}>
-                {c.Name}
+                {c.Name || c.name || "Unknown Country"}
               </option>
             ))}
           </select>
-          {errors.countryId && <span className="error-text">{errors.countryId}</span>}
         </div>
       </div>
 
@@ -274,16 +279,19 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
       <div className="form-section">
         <h3> Employment Information</h3>
         <div className="form-group">
-          <label>Designation </label>
-          <select name="designationId" value={formData.designationId} onChange={handleChange}>
+          <label>Designation</label>
+          <select 
+            name="designationId" 
+            value={formData.designationId} 
+            onChange={handleChange}
+          >
             <option value="">Select Designation</option>
             {designations && designations.map((d) => (
               <option key={d._id || d.id} value={d._id || d.id}>
-                {d.DesignationName || d.Title || d.Name || d.designationName || d.title || d.name}
+                {d.DesignationName || d.Title || d.Name || d.designationName || d.title || d.name || "Unknown Designation"}
               </option>
             ))}
           </select>
-          {errors.designationId && <span className="error-text">{errors.designationId}</span>}
         </div>
         <div className="form-group">
           <label>Joining Date </label>
@@ -302,7 +310,7 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
           />
           {errors.salary && <span className="error-text">{errors.salary}</span>}
         </div>
-      </div> {/* <-- Added missing closing div here */}
+      </div>
 
       {/* Education */}
       <div className="form-section">
@@ -321,7 +329,9 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
             <select value={edu.course} onChange={(e) => updateEducation(edu.id, 'course', e.target.value)}>
               <option value="">Select Course</option>
               {courses.map((c) => (
-                <option key={c._id || c.id} value={c._id || c.id}>{c.Name || c.name}</option>
+                <option key={c._id || c.id} value={c._id || c.id}>
+                  {c.Name || c.name || "Unknown Course"}
+                </option>
               ))}
             </select>
 
@@ -329,7 +339,9 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
             <select value={edu.specialization} onChange={(e) => updateEducation(edu.id, 'specialization', e.target.value)}>
               <option value="">Select Specialization</option>
               {specializations.map((s) => (
-                <option key={s._id || s.id} value={s._id || s.id}>{s.Specialization}</option>
+                <option key={s._id || s.id} value={s._id || s.id}>
+                  {s.Specialization || s.Name || s.name || "Unknown Specialization"}
+                </option>
               ))}
             </select>
 
@@ -337,7 +349,9 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
             <select value={edu.institution} onChange={(e) => updateEducation(edu.id, 'institution', e.target.value)}>
               <option value="">Select Institution</option>
               {institutions.map((i) => (
-                <option key={i._id || i.id} value={i._id || i.id}>{i.Name || i.name}</option>
+                <option key={i._id || i.id} value={i._id || i.id}>
+                  {i.Name || i.name || "Unknown Institution"}
+                </option>
               ))}
             </select>
 
@@ -370,7 +384,9 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
             <select value={exp.company} onChange={(e) => updateExperience(exp.id, 'company', e.target.value)}>
               <option value="">Select Company</option>
               {companies.map((c) => (
-                <option key={c._id || c.id} value={c._id || c.id}>{c.Name || c.name}</option>
+                <option key={c._id || c.id} value={c._id || c.id}>
+                  {c.Name || c.name || "Unknown Company"}
+                </option>
               ))}
             </select>
 
