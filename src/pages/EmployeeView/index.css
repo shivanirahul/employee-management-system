@@ -1,133 +1,149 @@
 /* ===== Page wrapper ===== */
 .ev-page {
-  max-width: 880px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 32px 16px 64px;
+  padding: 32px 24px 64px;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   color: #2a1b54;
+  background: #f5f3fb;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-/* ===== Loading / Error states ===== */
+/* ===== Loading / Error ===== */
 .ev-loading,
 .ev-error {
   text-align: center;
-  padding: 60px 20px;
-  font-size: 16px;
+  padding: 80px 20px;
+  font-size: 15px;
   color: #6b6680;
 }
-
 .ev-error { color: #b3273f; }
 
-/* ===== Header ===== */
+/* ===== Header row ===== */
 .ev-header {
   display: flex;
   align-items: center;
   gap: 16px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 28px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.07);
   flex-wrap: wrap;
 }
 
+/* Back button */
 .ev-back-btn {
   background: #f3eafe;
   border: 1px solid #d9c2f5;
   color: #7c3aed;
   font-weight: 600;
-  font-size: 14px;
-  padding: 8px 16px;
+  font-size: 13px;
+  padding: 8px 14px;
   border-radius: 10px;
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.15s;
+  flex-shrink: 0;
 }
-
 .ev-back-btn:hover { background: #ebdcfb; }
 
+/* Avatar + Name block — sits right after Back */
 .ev-title-block {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex: 1;
+  min-width: 0;
 }
 
 .ev-avatar {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: linear-gradient(135deg, #7c3aed, #6d28d9);
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .ev-name {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  margin: 0;
-  color: #2a1b54;
+  margin: 0 0 3px;
+  color: #1e1144;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ev-sub {
-  font-size: 14px;
+  font-size: 13px;
   color: #7c3aed;
-  margin: 4px 0 0;
+  margin: 0;
   font-weight: 500;
 }
 
+/* Edit button — pushed to far right */
 .ev-edit-btn {
   margin-left: auto;
-  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  background: #7c3aed;
   color: #fff;
   border: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: background 0.15s, transform 0.1s;
   white-space: nowrap;
+  flex-shrink: 0;
 }
-
 .ev-edit-btn:hover {
+  background: #6d28d9;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.32);
 }
 
 /* ===== Section cards ===== */
 .ev-card {
   background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.08);
-  padding: 28px 32px;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.07);
+  padding: 24px 28px;
 }
 
 .ev-section-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #2a1b54;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   padding-bottom: 14px;
-  border-bottom: 1px solid #e7e0f5;
+  border-bottom: 1.5px solid #ede8fb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ===== Field grid ===== */
 .ev-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px 32px;
+  gap: 20px 40px;
 }
 
 .ev-field {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .ev-field-full {
@@ -137,58 +153,263 @@
 .ev-label {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #9089a8;
 }
 
 .ev-value {
   font-size: 15px;
-  color: #2a1b54;
+  color: #1e1144;
   font-weight: 500;
   word-break: break-word;
+  line-height: 1.4;
 }
 
-/* ===== Education / Experience entry cards ===== */
+/* ===== Entry cards (Education / Work Exp rows) ===== */
 .ev-entry-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .ev-entry-card {
-  background: #faf7fe;
-  border: 1px solid #e7e0f5;
+  background: #f8f5fe;
+  border: 1.5px solid #ede8fb;
   border-radius: 14px;
-  padding: 20px 24px;
+  padding: 18px 22px;
 }
 
 .ev-entry-label {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: #7c3aed;
-  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
 }
 
 /* ===== Empty state ===== */
 .ev-empty {
-  color: #6b6680;
+  color: #9089a8;
   font-style: italic;
   font-size: 14px;
-  margin: 0;
+  margin: 4px 0 0;
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 640px) {
-  .ev-grid {
-    grid-template-columns: 1fr;
-  }
-  .ev-card {
-    padding: 22px 20px;
-  }
-  .ev-edit-btn {
-    margin-left: 0;
-    width: 100%;
-    text-align: center;
-  }
+  .ev-page { padding: 16px 14px 48px; }
+  .ev-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ev-card { padding: 20px 18px; }
+  .ev-header { padding: 16px 18px; gap: 12px; }
+  .ev-edit-btn { margin-left: 0; }
+  .ev-name { font-size: 17px; }
+}/* ===== Page wrapper ===== */
+.ev-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #2a1b54;
+  background: #f5f3fb;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ===== Loading / Error ===== */
+.ev-loading,
+.ev-error {
+  text-align: center;
+  padding: 80px 20px;
+  font-size: 15px;
+  color: #6b6680;
+}
+.ev-error { color: #b3273f; }
+
+/* ===== Header row ===== */
+.ev-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 28px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.07);
+  flex-wrap: wrap;
+}
+
+/* Back button */
+.ev-back-btn {
+  background: #f3eafe;
+  border: 1px solid #d9c2f5;
+  color: #7c3aed;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.ev-back-btn:hover { background: #ebdcfb; }
+
+/* Avatar + Name block — sits right after Back */
+.ev-title-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ev-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ev-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 3px;
+  color: #1e1144;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ev-sub {
+  font-size: 13px;
+  color: #7c3aed;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Edit button — pushed to far right */
+.ev-edit-btn {
+  margin-left: auto;
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ev-edit-btn:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+/* ===== Section cards ===== */
+.ev-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.07);
+  padding: 24px 28px;
+}
+
+.ev-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2a1b54;
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid #ede8fb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== Field grid ===== */
+.ev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+
+.ev-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ev-field-full {
+  grid-column: 1 / -1;
+}
+
+.ev-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9089a8;
+}
+
+.ev-value {
+  font-size: 15px;
+  color: #1e1144;
+  font-weight: 500;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+/* ===== Entry cards (Education / Work Exp rows) ===== */
+.ev-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ev-entry-card {
+  background: #f8f5fe;
+  border: 1.5px solid #ede8fb;
+  border-radius: 14px;
+  padding: 18px 22px;
+}
+
+.ev-entry-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* ===== Empty state ===== */
+.ev-empty {
+  color: #9089a8;
+  font-style: italic;
+  font-size: 14px;
+  margin: 4px 0 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .ev-page { padding: 16px 14px 48px; }
+  .ev-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ev-card { padding: 20px 18px; }
+  .ev-header { padding: 16px 18px; gap: 12px; }
+  .ev-edit-btn { margin-left: 0; }
+  .ev-name { font-size: 17px; }
 }
