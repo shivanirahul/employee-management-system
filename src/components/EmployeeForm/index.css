@@ -1,0 +1,379 @@
+/* =========================================================
+   135deg Soft Pink / Lavender Palette Form Stylesheet
+   ========================================================= */
+
+/* =========================================================
+   1. MAIN PAGE LAYOUT & GRADIENT CANVAS
+   ========================================================= */
+body {
+  background: linear-gradient(135deg, #FFF0F5, #E6E6FA);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.employee-form {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 16px 64px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   2. DESIGN HEADER: LEFT BACK BUTTON & CENTERED TITLE
+   ========================================================= */
+.employee-form .form-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; 
+  position: relative !important;      
+  max-width: 880px !important;        
+  margin: 0 auto !important;             
+  padding: 10px 4px !important;
+  margin-bottom: 36px !important;     
+  width: 100% !important;
+}
+
+.employee-form .form-header .back-btn {
+  position: absolute !important;
+  left: 4px !important;                
+  margin: 0 !important;
+  
+  /* Reset form input styles that leak into button layout */
+  height: auto !important;
+  width: auto !important;
+  background: #ffffff !important;
+  border: 2px solid #eae5f5 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #5c527a !important; 
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.06) !important; 
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.employee-form .form-header .back-btn:hover {
+  color: #000000 !important; 
+  border-color: #d9c2f5 !important;
+  background: #fcfaff !important;
+  transform: translateX(-2px) !important; 
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16) !important; 
+}
+
+.employee-form .form-header .back-btn:active {
+  transform: translateX(0) !important;
+}
+
+.employee-form .form-header h2 {
+  font-size: 26px !important;
+  color: #2a1b54 !important;
+  margin: 0 !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   3. WHITE LAYOUT CARDS WITH GENTLE PURPLE BORDERS
+   ========================================================= */
+.employee-form .form-section {
+  background-color: #ffffff !important; 
+  border: 2px solid #bba3e7 !important; 
+  border-radius: 12px !important;       
+  box-shadow: 0 4px 20px rgba(109, 40, 217, 0.05) !important; 
+  margin-bottom: 24px !important;
+  padding: 32px !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 20px;
+  align-items: start;
+}
+
+.form-section > h3 {
+  grid-column: 1 / -1;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2a1b54;
+  margin: 0 0 4px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e7e0f5;
+}
+
+/* Dynamic Add Button Inside Subcard Groups */
+.form-section > button[type='button'] {
+  grid-column: 1 / -1;
+  justify-self: end;
+  width: auto;
+  background: #ffffff;
+  border: 2px solid #eae5f5; 
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-top: -8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  color: #7c3aed; 
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-section > button[type='button']:hover {
+  color: #6d28d9; 
+  border-color: #d9c2f5; 
+  background: #f3eafe; 
+  transform: translateY(-1px); 
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16); 
+}
+
+/* =========================================================
+   4. INPUT FIELD LABELS & MEDIUM TYPOGRAPHY CONTROLS
+   ========================================================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Globally upgraded labels to a readable medium size */
+.employee-form .form-group label {
+  font-size: 16px !important;       
+  font-weight: 600 !important;       
+  color: #374151 !important;        
+  text-transform: none !important;  
+  letter-spacing: 0px !important;
+  margin-bottom: 6px !important;
+  display: block;
+}
+
+/* Symmetrical Textboxes Styled in Soft Light Purple Palette */
+.form-section input,
+.form-section select,
+.form-section textarea,
+.employee-form .form-group input,
+.employee-form .form-group select,
+.employee-form .form-group textarea {
+  background: #D8BFD8 !important; 
+  border: 1px solid #dfd5f2 !important; 
+  border-radius: 8px !important;
+  padding: 12px 16px !important; 
+  height: 46px !important; 
+  font-size: 16px !important;       
+  font-weight: 500 !important;
+  color: #2a1b54 !important;
+  font-family: inherit !important;
+  outline: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.form-section textarea {
+  height: auto !important;
+  min-height: 80px !important;
+}
+
+/* Active Workspace Typing Focus Configurations */
+.form-section input:focus,
+.form-section select:focus,
+.form-section textarea:focus {
+  background: #ffffff !important; 
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14) !important; 
+}
+
+/* =========================================================
+   5. EDUCATION & WORK EXPERIENCE SUB-TRACK CARDS
+   ========================================================= */
+.form-group:has(> strong) {
+  grid-column: 1 / -1;
+  background: #ffffff;
+  border: 1px solid #e7e0f5;
+  border-radius: 12px;
+  padding: 24px;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+}
+
+.employee-form .form-group strong {
+  grid-column: 1;
+  font-size: 16px !important;       
+  font-weight: 700 !important;       
+  color: #2a1b54 !important;        
+  display: inline-block !important;
+  margin-bottom: 8px !important;
+}
+
+/* Trash Icon Button Layout */
+.form-group > button[type='button'] {
+  grid-column: 2;
+  justify-self: end;
+  align-self: center;
+  width: auto;
+  background: #ffffff;
+  border: 2px solid #eae5f5; 
+  border-radius: 8px;
+  padding: 6px 10px; 
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  color: #7a7393; 
+  font-size: 20px; 
+  line-height: 1;
+  text-shadow: -0.4px -0.4px 0 #7a7393, 0.4px -0.4px 0 #7a7393, -0.4px 0.4px 0 #7a7393, 0.4px 0.4px 0 #7a7393;
+  box-shadow: 0 2px 6px rgba(168, 85, 247, 0.04);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group > button[type='button']:hover {
+  color: #e0556b !important; 
+  border-color: #f5c2cb !important; 
+  background: #fff5f6 !important; 
+  transform: translateY(-1px); 
+  box-shadow: 0 4px 12px rgba(224, 85, 107, 0.16) !important; 
+  text-shadow: -0.4px -0.4px 0 #e0556b, 0.4px -0.4px 0 #e0556b, -0.4px 0.4px 0 #e0556b, 0.4px 0.4px 0 #e0556b;
+}
+
+.form-group:has(> strong) label {
+  grid-column: 1;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  text-transform: none !important;
+  letter-spacing: 0em !important;
+}
+
+.form-group:has(> strong) input,
+.form-group:has(> strong) select,
+.form-group:has(> strong) textarea {
+  grid-column: 2;
+}
+
+/* Force uncreated status message onto one single row line */
+.employee-form .empty-notice-text {
+  display: block !important;
+  width: 100% !important;
+  flex: 0 0 100% !important;        
+  white-space: nowrap !important;   
+  text-align: left !important;      
+  font-size: 16px !important;       
+  color: #555e6d !important;        
+  margin: 16px 0 !important;
+  clear: both !important;
+}
+
+/* =========================================================
+   6. SUBMIT ACTION CONTROLS
+   ========================================================= */
+.submit-button {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 36px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.2);
+  transition: all 0.15s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.26);
+}
+
+/* =========================================================
+   7. STRIKING BOLD RED VALIDATION ERROR OVERRIDES
+   ========================================================= */
+.employee-form .error-text {
+  color: #dc2626 !important;        /* Pure bright red error code style */
+  font-weight: 700 !important;        /* Strong bold typography flag */
+  font-size: 14px !important;        /* Extremely legible size */
+  margin-top: 6px !important;
+  display: block !important;
+  text-align: left !important;       /* Aligns beautifully with inputs */
+}
+
+/* Highlight boxes turning a soft pink gradient on input crashes */
+.employee-form input.input-error,
+.employee-form select.input-error,
+.employee-form textarea.input-error {
+  border: 1.5px solid #dc2626 !important;
+  background-color: #fff5f6 !important; 
+}
+
+/* =========================================================
+   8. MOBILE SCREEN RESPONSIVE MEDIA QUERIES
+   ========================================================= */
+@media (max-width: 640px) {
+  .employee-form .form-section,
+  .form-group:has(> strong) {
+    grid-template-columns: 1fr;
+    padding: 22px 20px !important;
+  }
+  .form-group:has(> strong) label,
+  .form-group:has(> strong) input,
+  .form-group:has(> strong) select,
+  .form-group:has(> strong) textarea {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================================
+   9. GLOBAL PLACEHOLDER COLOR & WEIGHT OVERRIDES
+   ========================================================= */
+.employee-form input::placeholder,
+.employee-form textarea::placeholder {
+  color: #000000 !important;
+  font-weight: 400 !important; /* Forces standard, non-bold weight */
+  opacity: 1 !important; 
+}
+
+/* Chrome, Safari, Edge, Opera */
+.employee-form input::-webkit-input-placeholder,
+.employee-form textarea::-webkit-input-placeholder {
+  color: #000000 !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}
+
+/* Firefox */
+.employee-form input::-moz-placeholder,
+.employee-form textarea::-moz-placeholder {
+  color: #000000 !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}
+
+/* =========================================================
+   10. EXPLICIT DROPDOWN POPUP LIST OPTIONS REPAIR
+   ========================================================= */
+/* Targets select elements' custom dropdown text popup options safely */
+.employee-form select option {
+  background-color: #ffffff !important; 
+  color: #000000 !important;
+  font-weight: 400 !important;
+}
