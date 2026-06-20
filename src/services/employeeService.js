@@ -15,3 +15,5 @@ export const getCompanies = () => apiClient.get('/api/companies');
 export const createEmployee = (employeeData) => apiClient.post('/api/employee', employeeData);
 
 export const getEmployeeById = (id) => apiClient.get(`/api/employee/${id}`);
+
+export const updateEmployee = (id, data) => apiClient.put(`/api/employee/${id}`, data);

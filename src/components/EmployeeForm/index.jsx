@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { getCountries, getDesignations, getCourses, getSpecializations, getInstitutions, getCompanies } from '../../services/masterService';
 import './index.css';
 
-const EmployeeForm = ({ onSubmit, backendError }) => {
+const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    gender: '',
-    dob: '',
-    email: '',
-    phone: '',
-    postalAddress: '', 
-    city: '',          
-    countryId: '',
-    designationId: '',
-    joiningDate: '',
-    salary: ''
+    firstName:     initialData?.firstName     || '',
+    lastName:      initialData?.lastName      || '',
+    gender:        initialData?.gender        || '',
+    dob:           initialData?.dob           || '',
+    email:         initialData?.email         || '',
+    phone:         initialData?.phone         || '',
+    postalAddress: initialData?.postalAddress || '',
+    city:          initialData?.city          || '',
+    countryId:     initialData?.countryId     || '',
+    designationId: initialData?.designationId || '',
+    joiningDate:   initialData?.joiningDate   || '',
+    salary:        initialData?.salary        || ''
   });
 
   const [countries, setCountries] = useState([]);
@@ -25,8 +25,8 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
   const [institutions, setInstitutions] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [errors, setErrors] = useState({});
-  const [education, setEducation] = useState([]);
-  const [workExperience, setWorkExperience] = useState([]);
+  const [education, setEducation] = useState(initialData?.education || []);
+  const [workExperience, setWorkExperience] = useState(initialData?.workExperience || []);
 
   useEffect(() => {
     const fetchLookups = async () => {
@@ -162,7 +162,7 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         <button type="button" className="back-btn" onClick={() => window.history.back()}>
           ← Back
         </button>
-        <h2> Add New Employee</h2>
+        <h2>{isEditMode ? 'Edit Employee' : 'Add New Employee'}</h2>
       </div>
 
       {/* Personal Information */}
@@ -416,7 +416,8 @@ const EmployeeForm = ({ onSubmit, backendError }) => {
         ))}
       </div>
 
-      <button type="submit" className="submit-button">Save Employee</button>
+      <button type="submit" className="submit-button">{isEditMode ? 'Update Employee' : 'Save Employee'}
+      </button>
     </form>
   );
 };
