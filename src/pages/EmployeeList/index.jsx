@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EmployeeTable from "../../components/EmployeeTable";
 import apiClient from "../../services/api";
+import Layout from "../../components/Layout/Layout";
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
@@ -44,6 +45,7 @@ export default function EmployeeList() {
   }, []);
 
   return (
+    <Layout>
     <div>
       <h1>Employee List</h1>
 
@@ -54,5 +56,6 @@ export default function EmployeeList() {
         onDelete={handleDelete}
       />
     </div>
+    </Layout>
   );
 }

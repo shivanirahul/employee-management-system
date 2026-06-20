@@ -1,0 +1,104 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  color: #8b5cf6;
+  font-size: 14px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #312e81;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-btn {
+  border: none;
+  background: transparent;
+  color: #6b7280;
+
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-btn.active {
+  background: #eddcff;
+  color: #8b5cf6;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-name {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.logout-btn {
+  border: 1px solid #e5e7eb;
+  background: rgb(255, 255, 255);
+
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #312e81;
+}
