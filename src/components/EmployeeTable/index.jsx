@@ -1,11 +1,17 @@
 import { useState } from "react";
 import "./index.css";
 
-const PER_PAGE = 6;
 const BADGE = { Male: "et-badge-male", Female: "et-badge-female" };
-const AVATAR_COLORS = ["#6d28d9", "#db2777", "#0891b2", "#ea580c", "#16a34a"];
+const AVATAR_CLASSES = ["et-avatar-0", "et-avatar-1", "et-avatar-2", "et-avatar-3", "et-avatar-4"];
+const PER_PAGE = 6;
 const initials = (e) => (e.firstName?.[0] || "") + (e.lastName?.[0] || "");
 
+// The card grid uses minmax(260px, 320px) columns with a 16px gap. Rather than
+// a fixed page size, measure how many columns actually fit at the current
+// container width and size each page to exactly two full rows of that — so
+// screens that fit 4 cards per row get pages of 8, screens that fit 2 per row
+// get pages of 4, and the last page never leaves a half-empty row of dead
+// space next to the pagination controls.
 export default function EmployeeTable({ employees = [], onView, onEdit, onDelete }) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("firstName");
@@ -22,10 +28,12 @@ export default function EmployeeTable({ employees = [], onView, onEdit, onDelete
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
   const cur = Math.min(page, totalPages);
   const slice = filtered.slice((cur - 1) * PER_PAGE, cur * PER_PAGE);
-
+ 
   return (
     <div className="et-page">
-      <div className="et-header">
+
+
+  <div className="et-header">
         <div>
           <h2 className="et-title">Employees</h2>
           <p className="et-subtitle">{filtered.length} total record{filtered.length !== 1 && "s"}</p>
@@ -66,7 +74,7 @@ export default function EmployeeTable({ employees = [], onView, onEdit, onDelete
           <div key={emp.id ?? i} className="et-card">
             <div className="et-card-top">
               <div className="et-card-identity">
-                <div className="et-avatar" style={{ background: AVATAR_COLORS[i % AVATAR_COLORS.length] }}>
+                <div className={`et-avatar ${AVATAR_CLASSES[i % AVATAR_CLASSES.length]}`}>
                   {initials(emp)}
                 </div>
                 <div>
