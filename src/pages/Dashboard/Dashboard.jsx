@@ -272,66 +272,6 @@ const Dashboard = () => {
                 </div>
               </Panel>
 
-<<<<<<< HEAD
-              <Panel title="Announcements">
-                <div className="announcement-list">
-                  {ANNOUNCEMENTS.map((a, i) => (
-                    <div key={i} className="announcement-row">
-                      <span className="announcement-dot" />
-                      <div className="announcement-text">
-                        {a.text}
-                        <span className="announcement-time">{a.time}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Panel>
-            </div>
-
-            <div className="dashboard-grid dashboard-grid-secondary">
-              <Panel title="Gender">
-                {employees.length === 0 ? (
-                  <EmptyState text="No data yet." />
-                ) : (
-                  <div className="gender-breakdown">
-                    {Object.entries(genderCounts).map(([gender, count]) => {
-                      const pct = Math.round((count / totalForGender) * 100);
-                      return (
-                        <div key={gender} className="gender-row">
-                          <div className="gender-row-top">
-                            <GenderBadge gender={gender} />
-                            <span className="gender-count">{pct}%</span>
-                          </div>
-                          <div className="gender-bar-track">
-                            <div
-                              className={`gender-bar-fill ${BADGE_CLASS[gender] ? BADGE_CLASS[gender] + "-fill" : "badge-other-fill"}`}
-                              style={{ width: `${pct}%` }}
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </Panel>
-
-              <Panel title="Top Cities">
-                {cityList.length === 0 ? (
-                  <EmptyState text="No data yet." />
-                ) : (
-                  <div className="city-list">
-                    {cityList.map(([name, count]) => (
-                      <div key={name} className="city-row">
-                        <span>{name}</span>
-                        <span className="city-count">{count}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </Panel>
-            </div>
-
-=======
               <Panel title="Gender Statistics">
   {employees.length === 0 ? (
     <EmptyState text="No data yet." />
@@ -423,7 +363,6 @@ const Dashboard = () => {
     )}
   </Panel>
 </div>
->>>>>>> origin/feature/layout
           </>
         )}
       </div>
