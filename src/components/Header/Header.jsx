@@ -19,6 +19,13 @@ function Header() {
           <span className="logo-text">EmpTrack</span>
         </div>
 
+<nav className="nav-menu">
+          <button className="nav-btn active"
+          onClick={() => navigate("/dashboard")}
+          >
+            <FaUsers />
+            <span>Dashboard</span>
+          </button>
         <nav className="nav-menu">
           <button className="nav-btn active"
           onClick={() => navigate("/employees")}
@@ -27,12 +34,13 @@ function Header() {
             <span>Employees</span>
           </button>
 
-          <button className="nav-btn"
+          <button className="nav-btn active"
           onClick={() => navigate("/employees/add")}
           >
             <FaUserPlus />
             <span>Add Employee</span>
           </button>
+        </nav>
         </nav>
       </div>
 
