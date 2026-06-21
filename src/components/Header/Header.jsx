@@ -28,13 +28,6 @@ function Header() {
           </button>
         <nav className="nav-menu">
           <button className="nav-btn active"
-          onClick={() => navigate("/dashboard")}
-          >
-            <FaUsers />
-            <span>Dashboard</span>
-          </button>
-        <nav className="nav-menu">
-          <button className="nav-btn active"
           onClick={() => navigate("/employees")}
           >
             <FaUsers />

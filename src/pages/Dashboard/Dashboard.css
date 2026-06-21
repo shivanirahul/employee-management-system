@@ -185,20 +185,11 @@ body {
 
 .dashboard-grid-secondary {
   grid-template-columns: 1fr 1fr;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a678b3328b3b3110ec3e2af9daabf095d399e8d1
   align-items: stretch;
 }
 
 .dashboard-grid-secondary .panel {
   min-height: 220px;
-<<<<<<< HEAD
->>>>>>> origin/feature/layout
-=======
->>>>>>> a678b3328b3b3110ec3e2af9daabf095d399e8d1
 }
 
 @media (max-width: 1300px) {
