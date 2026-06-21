@@ -44,18 +44,62 @@ export default function EmployeeList() {
     fetchEmployees();
   }, []);
 
+  
+
   return (
     <Layout>
-    <div>
-      <h1>Employee List</h1>
+    <div className="employee-hero">
+  <div className="hero-content">
+    <h1>Employee List</h1>
+    <p>Manage, search and track all employees in one place.</p>
 
+    <div className="hero-stats">
+      <div className="stat-card">
+        <div className="stat-icon">👥</div>
+        <div>
+        <h2>{employees.length}</h2>
+        <span>Total Employees</span>
+        </div>
+      </div>
+
+      <div className="stat-card">
+        <div className="stat-icon male">👨</div>
+        <div>
+        <h2>
+          {employees.filter(e => e.gender === "Male").length}
+        </h2>
+        <span>Male</span>
+        </div>
+      </div>
+
+      <div className="stat-card">
+        <div className="stat-icon female">👩</div>
+        <h2>
+          {employees.filter(e => e.gender === "Female").length}
+        </h2>
+        <span>Female</span>
+      </div>
+
+      <div className="stat-card">
+        <div className="stat-icon city">📍</div>
+        <h2>
+          {[...new Set(employees.map(e => e.city))].length}
+        </h2>
+        <span>Cities</span>
+      </div>
+    </div>
+  </div>
+
+  <div className="hero-icon">
+    👨‍💼👩‍💼
+  </div>
+</div>
       <EmployeeTable
         employees={employees}
         onView={(emp) => console.log("View", emp)}
         onEdit={(emp) => console.log("Edit", emp)}
         onDelete={handleDelete}
       />
-    </div>
     </Layout>
   );
 }

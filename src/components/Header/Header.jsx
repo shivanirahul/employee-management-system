@@ -21,13 +21,20 @@ function Header() {
 
         <nav className="nav-menu">
           <button className="nav-btn active"
+          onClick={() => navigate("/dashboard")}
+          >
+            <FaUsers />
+            <span>Dashboard</span>
+          </button>
+
+          <button className="nav-btn active"
           onClick={() => navigate("/employees")}
           >
             <FaUsers />
             <span>Employees</span>
           </button>
 
-          <button className="nav-btn"
+          <button className="nav-btn active"
           onClick={() => navigate("/employees/add")}
           >
             <FaUserPlus />
