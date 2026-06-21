@@ -1,7 +1,12 @@
+//dashboard.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import apiClient from "../../services/api";
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 import "./Dashboard.css";
 
 // ---------- helpers ----------
@@ -267,6 +272,7 @@ const Dashboard = () => {
                 </div>
               </Panel>
 
+<<<<<<< HEAD
               <Panel title="Announcements">
                 <div className="announcement-list">
                   {ANNOUNCEMENTS.map((a, i) => (
@@ -325,6 +331,99 @@ const Dashboard = () => {
               </Panel>
             </div>
 
+=======
+              <Panel title="Gender Statistics">
+  {employees.length === 0 ? (
+    <EmptyState text="No data yet." />
+  ) : (
+    <div className="gender-chart-container">
+      <div className="gender-chart">
+        <Doughnut
+          data={{
+            labels: Object.keys(genderCounts),
+            datasets: [
+              {
+                data: Object.values(genderCounts),
+                backgroundColor: [
+                  "#ec4899",
+                  "#94a3b8",
+                  "#3b82f6",
+                ],
+                borderWidth: 0,
+              },
+            ],
+          }}
+          options={{
+            cutout: "70%",
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+          }}
+        />
+      </div>
+
+      <div className="gender-stats">
+        {Object.entries(genderCounts).map(([gender, count]) => {
+          const pct = Math.round((count / totalForGender) * 100);
+
+          return (
+            <div key={gender} className="gender-stat-item">
+              <div className="gender-stat-left">
+                <span
+                  className={`gender-dot ${
+                    gender === "Female"
+                      ? "female-dot"
+                      : gender === "Male"
+                      ? "male-dot"
+                      : "other-dot"
+                  }`}
+                />
+                <span>{gender}</span>
+              </div>
+
+              <strong>{pct}%</strong>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  )}
+</Panel>
+</div>
+
+<div className="dashboard-grid dashboard-grid-secondary">
+  <Panel title="Announcements">
+    <div className="announcement-list">
+      {ANNOUNCEMENTS.map((a, i) => (
+        <div key={i} className="announcement-row">
+          <span className="announcement-dot" />
+          <div className="announcement-text">
+            {a.text}
+            <span className="announcement-time">{a.time}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Panel>
+
+  <Panel title="Top Cities">
+    {cityList.length === 0 ? (
+      <EmptyState text="No data yet." />
+    ) : (
+      <div className="city-list">
+        {cityList.map(([name, count]) => (
+          <div key={name} className="city-row">
+            <span>{name}</span>
+            <span className="city-count">{count}</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </Panel>
+</div>
+>>>>>>> origin/feature/layout
           </>
         )}
       </div>

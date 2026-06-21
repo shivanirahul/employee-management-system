@@ -185,6 +185,14 @@ body {
 
 .dashboard-grid-secondary {
   grid-template-columns: 1fr 1fr;
+<<<<<<< HEAD
+=======
+  align-items: stretch;
+}
+
+.dashboard-grid-secondary .panel {
+  min-height: 220px;
+>>>>>>> origin/feature/layout
 }
 
 @media (max-width: 1300px) {
@@ -343,40 +351,56 @@ body {
 
 /* ---------- gender breakdown ---------- */
 
-.gender-breakdown {
+.gender-chart-container {
   display: flex;
-  flex-direction: column;
-  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
 }
 
-.gender-row-top {
+.gender-chart {
+  width: 180px;
+  height: 180px;
+}
+
+.gender-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gender-stat-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3px;
+  min-width: 140px;
+  font-size: 14px;
 }
 
-.gender-count {
-  font-size: 10.5px;
-  color: #6b7280;
+.gender-stat-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.gender-bar-track {
-  background: #f1f1f5;
-  border-radius: 999px;
-  height: 5px;
-  overflow: hidden;
+.gender-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
-.gender-bar-fill {
-  height: 100%;
-  border-radius: 999px;
-  transition: width 0.5s ease;
+.female-dot {
+  background: #ec4899;
 }
 
-.badge-male-fill { background: #3b82f6; }
-.badge-female-fill { background: #ec4899; }
-.badge-other-fill { background: #94a3b8; }
+.male-dot {
+  background: #3b82f6;
+}
+
+.other-dot {
+  background: #94a3b8;
+}
 
 /* ---------- city list ---------- */
 
