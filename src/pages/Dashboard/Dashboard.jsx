@@ -1,4 +1,4 @@
-//dashboard.jsx
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
@@ -9,7 +9,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 import "./Dashboard.css";
 
-// ---------- helpers ----------
+
 
 function daysUntilBirthday(dob) {
   if (!dob) return Infinity;
@@ -46,7 +46,7 @@ const ANNOUNCEMENTS = [
   { text: "Please update your profile details if anything has changed.", time: "1 week ago" },
 ];
 
-// ---------- small reusable pieces ----------
+
 
 function useCountUp(target, duration = 700) {
   const [value, setValue] = useState(0);
@@ -110,7 +110,7 @@ function Spinner() {
   return <div className="spinner" role="status" aria-label="Loading" />;
 }
 
-// ---------- main component ----------
+
 
 const Dashboard = () => {
   const navigate = useNavigate();

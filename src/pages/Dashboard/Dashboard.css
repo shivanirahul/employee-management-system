@@ -9,7 +9,6 @@ body {
   font-family: sans-serif;
 }
 
-/* ---------- welcome banner ---------- */
 
 .welcome-banner {
   position: relative;
@@ -169,7 +168,7 @@ body {
   color: #1f2937;
 }
 
-/* ---------- grid + panels ---------- */
+
 
 .dashboard-grid {
   display: grid;
@@ -243,7 +242,7 @@ body {
   padding: 6px 0;
 }
 
-/* ---------- employee rows ---------- */
+
 
 .employee-list {
   display: flex;
@@ -301,7 +300,7 @@ body {
 .avatar-3 { background: #ea580c; }
 .avatar-4 { background: #16a34a; }
 
-/* ---------- gender badge ---------- */
+
 
 .badge {
   font-size: 9px;
@@ -315,7 +314,7 @@ body {
 .badge-female { background: #fce7f3; color: #be185d; }
 .badge-other { background: #f1f5f9; color: #475569; }
 
-/* ---------- birthday table ---------- */
+
 
 .bday-table {
   width: 100%;
@@ -346,7 +345,7 @@ body {
   font-size: 10.5px;
 }
 
-/* ---------- gender breakdown ---------- */
+
 
 .gender-chart-container {
   display: flex;
@@ -399,7 +398,7 @@ body {
   background: #94a3b8;
 }
 
-/* ---------- city list ---------- */
+
 
 .city-list {
   display: flex;
@@ -429,7 +428,7 @@ body {
   border-radius: 999px;
 }
 
-/* ---------- quick actions ---------- */
+
 
 .quick-actions-list {
   display: flex;
@@ -465,7 +464,7 @@ body {
   font-size: 13px;
 }
 
-/* ---------- announcements ---------- */
+
 
 .announcement-list {
   display: flex;
@@ -521,7 +520,7 @@ body {
   font-size: 11px;
 }
 
-/* ---------- buttons ---------- */
+
 
 .view-all-btn {
   background: #f3e8ff;
@@ -538,7 +537,7 @@ body {
   background: #ead9fc;
 }
 
-/* ---------- responsive ---------- */
+
 
 @media (max-width: 600px) {
   .dashboard-container {

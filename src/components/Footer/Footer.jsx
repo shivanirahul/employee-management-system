@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaTwitter,
@@ -38,11 +39,18 @@ function Footer() {
         <div className="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li>Dashboard</li>
-            <li>Employees</li>
-            <li>Add Employee</li>
-            <li>Reports</li>
-          </ul>
+  <li>
+    <Link to="/dashboard">Dashboard</Link>
+  </li>
+
+  <li>
+    <Link to="/employees">Employees</Link>
+  </li>
+
+  <li>
+    <Link to="/add-employee">Add Employee</Link>
+  </li>
+</ul>
         </div>
 
         <div className="footer-section">
