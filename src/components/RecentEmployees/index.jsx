@@ -1,0 +1,1 @@
+import { RecentEmployees } from "../../components/RecentEmployees";

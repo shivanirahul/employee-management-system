@@ -53,19 +53,27 @@
 body {
   margin: 0;
 }
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 h1,
 h2 {
   font-family: var(--heading);
@@ -109,3 +117,4 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
