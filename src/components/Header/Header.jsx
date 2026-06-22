@@ -1,5 +1,6 @@
 import "./Header.css";
 import { FaUsers, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/authService";
 import logo from "./logo.png";
@@ -45,13 +46,26 @@ function Header() {
       </div>
 
       <div className="header-right">
-        <span className="admin-name">admin</span>
+  <div className="admin-profile">
+    <img
+      src="https://i.pravatar.cc/40"
+      alt="Admin"
+      className="admin-avatar"
+    />
 
-        <button className="logout-btn" onClick={handleLogout}>
-          <FaSignOutAlt />
-          <span>Logout</span>
-        </button>
-      </div>
+    <div className="admin-info">
+      <h4>admin</h4>
+    
+    </div>
+
+    
+  </div>
+
+  <button className="logout-btn" onClick={handleLogout}>
+    <FaSignOutAlt />
+    <span>Logout</span>
+  </button>
+</div>
     </header>
   );
 }
