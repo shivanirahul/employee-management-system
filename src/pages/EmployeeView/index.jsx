@@ -4,6 +4,7 @@ import { getCountries, getDesignations, getCourses, getSpecializations, getInsti
 import { getEmployeeById } from '../../services/employeeService';
 import apiClient from '../../services/api';
 import './index.css';
+import Layout from "../../components/Layout/Layout";
 
 const resolve = (arr, id, ...fields) => {
   const found = arr.find((item) => (item._id || item.id) === id);
@@ -86,6 +87,7 @@ export default function EmployeeView() {
   const emp = employee;
 
   return (
+    <Layout>
     <div className="ev-page">
 
       
@@ -102,6 +104,7 @@ export default function EmployeeView() {
             </div>
           </div>
         </div>
+        
       )}
 
      
@@ -252,5 +255,6 @@ export default function EmployeeView() {
       </div>
 
     </div>
+    </Layout>
   );
 }

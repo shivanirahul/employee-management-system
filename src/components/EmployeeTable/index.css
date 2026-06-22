@@ -377,3 +377,73 @@
 .stat-icon.city {
   background: #dcfce7;
 }
+
+.ev-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.ev-confirm-box {
+  background: white;
+  width: 420px;
+  max-width: 90%;
+
+  padding: 24px;
+  border-radius: 18px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  text-align: center;
+}
+
+.ev-confirm-box h3 {
+  margin: 0 0 12px;
+  color: #7c3aed;
+  font-size: 22px;
+}
+
+.ev-confirm-box p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.ev-confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ev-confirm-cancel,
+.ev-confirm-delete {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ev-confirm-cancel {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.ev-confirm-delete {
+  background: #ef4444;
+  color: white;
+}
+
+.ev-confirm-cancel:hover {
+  background: #ddd6fe;
+}
+
+.ev-confirm-delete:hover {
+  background: #dc2626;
+}

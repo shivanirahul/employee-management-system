@@ -83,7 +83,6 @@ body {
   background: rgba(255, 255, 255, 0.22);
 }
 
-/* ---------- loading & error ---------- */
 
 .dashboard-loading {
   display: flex;
@@ -115,7 +114,7 @@ body {
   font-size: 13px;
 }
 
-/* ---------- stat cards ---------- */
+
 
 .stats-row {
   display: flex;

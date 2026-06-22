@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import EmployeeTable from "../../components/EmployeeTable";
 import apiClient from "../../services/api";
 import Layout from "../../components/Layout/Layout";
+import { useNavigate } from "react-router-dom";
 
 export default function EmployeeList() {
+  const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [designationMap, setDesignationMap] = useState({});
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const fetchDesignations = async () => {
     try {
@@ -53,16 +57,18 @@ export default function EmployeeList() {
     await fetchEmployees(map);
   };
 
-  const handleDelete = async (emp) => {
-    try {
-      await apiClient.delete(`/api/employee/${emp.id}`);
-      alert(`${emp.firstName} ${emp.lastName} deleted successfully`);
-      await fetchEmployees(designationMap);
-    } catch (error) {
-      console.error(error);
-      alert("Failed to delete employee");
-    }
-  };
+  const handleDelete = async () => {
+  try {
+    await apiClient.delete(`/api/employee/${selectedEmployee.id}`);
+
+    setShowConfirm(false);
+
+    await fetchEmployees(designationMap);
+  } catch (error) {
+    console.error(error);
+    alert("Failed to delete employee");
+  }
+};
 
   useEffect(() => {
     loadAll();
@@ -108,12 +114,46 @@ export default function EmployeeList() {
 
         <div className="hero-icon">👨‍💼👩‍💼</div>
       </div>
+      {showConfirm && (
+  <div className="ev-confirm-overlay">
+    <div className="ev-confirm-box">
+      <h3>Delete Employee?</h3>
+
+      <p>
+        This will permanently remove{" "}
+        <strong>
+          {selectedEmployee?.firstName} {selectedEmployee?.lastName}
+        </strong>{" "}
+        from the system.
+      </p>
+
+      <div className="ev-confirm-actions">
+        <button
+          className="ev-confirm-cancel"
+          onClick={() => setShowConfirm(false)}
+        >
+          Cancel
+        </button>
+
+        <button
+          className="ev-confirm-delete"
+          onClick={handleDelete}
+        >
+          Yes, Delete
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
       <EmployeeTable
-        employees={employees}
-        onView={(emp) => console.log("View", emp)}
-        onEdit={(emp) => console.log("Edit", emp)}
-        onDelete={handleDelete}
+      employees={employees}
+        onView={(emp) => navigate(`/employees/view/${emp.id}`)}
+        onEdit={(emp) => navigate(`/employees/edit/${emp.id}`)}
+        onDelete={(emp) => {
+  setSelectedEmployee(emp);
+  setShowConfirm(true);
+}}
       />
     </Layout>
   );

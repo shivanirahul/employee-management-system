@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import EmployeeForm from '../../components/EmployeeForm';
 import { getEmployeeById, updateEmployee } from '../../services/employeeService';
+import Layout from "../../components/Layout/Layout";
 
 // Maps the API response (PascalCase) back to the form's shape (camelCase)
 // This is the reverse of what handleSubmit does when sending to the backend
@@ -70,6 +71,7 @@ export default function EmployeeEdit() {
     try {
       setBackendError('');
       await updateEmployee(id, payload);
+      alert("Employee updated successfully!");
       navigate(`/employees/view/${id}`);
     } catch (err) {
       console.error('EmployeeEdit update error:', err);
@@ -81,21 +83,27 @@ export default function EmployeeEdit() {
 
   if (loading) {
     return (
+      <Layout>
       <div style={{ textAlign: 'center', padding: '80px 20px', color: '#6b6680' }}>
         Loading employee data...
       </div>
+      </Layout>
     );
   }
 
   if (fetchError) {
     return (
+      <Layout>
       <div style={{ textAlign: 'center', padding: '80px 20px', color: '#b3273f' }}>
         {fetchError}
       </div>
+      </Layout>
     );
   }
 
   return (
+
+    <Layout>
     <div style={{ padding: '20px' }}>
       <EmployeeForm
         onSubmit={handleSubmit}
@@ -104,5 +112,6 @@ export default function EmployeeEdit() {
         isEditMode={true}
       />
     </div>
+    </Layout>
   );
 }

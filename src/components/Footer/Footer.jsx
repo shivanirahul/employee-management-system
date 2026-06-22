@@ -48,7 +48,7 @@ function Footer() {
   </li>
 
   <li>
-    <Link to="/add-employee">Add Employee</Link>
+    <Link to="/employees/add">Add Employee</Link>
   </li>
 </ul>
         </div>

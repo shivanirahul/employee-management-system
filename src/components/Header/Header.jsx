@@ -3,6 +3,7 @@ import { FaUsers, FaUserPlus, FaSignOutAlt } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/authService";
+import adminPic from "./admin.png";
 import logo from "./logo.png";
 function Header() {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ function Header() {
       <div className="header-right">
   <div className="admin-profile">
     <img
-      src="https://i.pravatar.cc/40"
+      src={adminPic}
       alt="Admin"
       className="admin-avatar"
     />
