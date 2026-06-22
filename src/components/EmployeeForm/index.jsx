@@ -14,7 +14,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
     city:          initialData?.city          || '',
     countryId:     initialData?.countryId     || '',
     designationId: initialData?.designationId || '',
-    joiningDate:   initialData?.joiningDate   || '',
     salary:        initialData?.salary        || ''
   });
 
@@ -293,13 +292,9 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
             ))}
           </select>
         </div>
+        
         <div className="form-group">
-          <label>Joining Date </label>
-          <input type="date" name="joiningDate" value={formData.joiningDate} onChange={handleChange} />
-          {errors.joiningDate && <span className="error-text">{errors.joiningDate}</span>}
-        </div>
-        <div className="form-group">
-          <label>Salary </label>
+          <label>Basic Pay </label>
           <input 
             type="number" 
             name="salary" 

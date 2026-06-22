@@ -1,10 +1,3 @@
-/* =========================================================
-   135deg Soft Pink / Lavender Palette Form Stylesheet
-   ========================================================= */
-
-/* =========================================================
-   1. MAIN PAGE LAYOUT & GRADIENT CANVAS
-   ========================================================= */
 body {
   background: linear-gradient(135deg, #FFF0F5, #E6E6FA);
   background-attachment: fixed;
@@ -23,9 +16,6 @@ body {
   box-sizing: border-box;
 }
 
-/* =========================================================
-   2. DESIGN HEADER: LEFT BACK BUTTON & CENTERED TITLE
-   ========================================================= */
 .employee-form .form-header {
   display: flex !important;
   align-items: center !important;
@@ -84,9 +74,7 @@ body {
   text-align: center !important;
 }
 
-/* =========================================================
-   3. WHITE LAYOUT CARDS WITH GENTLE PURPLE BORDERS
-   ========================================================= */
+
 .employee-form .form-section {
   background-color: #ffffff !important; 
   border: 2px solid #bba3e7 !important; 
@@ -141,16 +129,14 @@ body {
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16); 
 }
 
-/* =========================================================
-   4. INPUT FIELD LABELS & MEDIUM TYPOGRAPHY CONTROLS
-   ========================================================= */
+
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* Globally upgraded labels to a readable medium size */
+
 .employee-form .form-group label {
   font-size: 16px !important;       
   font-weight: 600 !important;       
@@ -188,7 +174,7 @@ body {
   min-height: 80px !important;
 }
 
-/* Active Workspace Typing Focus Configurations */
+
 .form-section input:focus,
 .form-section select:focus,
 .form-section textarea:focus {
@@ -197,9 +183,7 @@ body {
   box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14) !important; 
 }
 
-/* =========================================================
-   5. EDUCATION & WORK EXPERIENCE SUB-TRACK CARDS
-   ========================================================= */
+
 .form-group:has(> strong) {
   grid-column: 1 / -1;
   background: #ffffff;
@@ -222,7 +206,7 @@ body {
   margin-bottom: 8px !important;
 }
 
-/* Trash Icon Button Layout */
+
 .form-group > button[type='button'] {
   grid-column: 2;
   justify-self: end;
@@ -270,7 +254,7 @@ body {
   grid-column: 2;
 }
 
-/* Force uncreated status message onto one single row line */
+
 .employee-form .empty-notice-text {
   display: block !important;
   width: 100% !important;
@@ -283,9 +267,7 @@ body {
   clear: both !important;
 }
 
-/* =========================================================
-   6. SUBMIT ACTION CONTROLS
-   ========================================================= */
+
 .submit-button {
   align-self: flex-end;
   background: linear-gradient(135deg, #7c3aed, #6d28d9);
@@ -305,19 +287,17 @@ body {
   box-shadow: 0 8px 24px rgba(124, 58, 237, 0.26);
 }
 
-/* =========================================================
-   7. STRIKING BOLD RED VALIDATION ERROR OVERRIDES
-   ========================================================= */
+
 .employee-form .error-text {
-  color: #dc2626 !important;        /* Pure bright red error code style */
-  font-weight: 700 !important;        /* Strong bold typography flag */
-  font-size: 14px !important;        /* Extremely legible size */
+  color: #dc2626 !important;        
+  font-weight: 700 !important;        
+  font-size: 14px !important;        
   margin-top: 6px !important;
   display: block !important;
-  text-align: left !important;       /* Aligns beautifully with inputs */
+  text-align: left !important;      
 }
 
-/* Highlight boxes turning a soft pink gradient on input crashes */
+
 .employee-form input.input-error,
 .employee-form select.input-error,
 .employee-form textarea.input-error {
@@ -325,9 +305,7 @@ body {
   background-color: #fff5f6 !important; 
 }
 
-/* =========================================================
-   8. MOBILE SCREEN RESPONSIVE MEDIA QUERIES
-   ========================================================= */
+
 @media (max-width: 640px) {
   .employee-form .form-section,
   .form-group:has(> strong) {
@@ -342,17 +320,15 @@ body {
   }
 }
 
-/* =========================================================
-   9. GLOBAL PLACEHOLDER COLOR & WEIGHT OVERRIDES
-   ========================================================= */
+
 .employee-form input::placeholder,
 .employee-form textarea::placeholder {
   color: #000000 !important;
-  font-weight: 400 !important; /* Forces standard, non-bold weight */
+  font-weight: 400 !important; 
   opacity: 1 !important; 
 }
 
-/* Chrome, Safari, Edge, Opera */
+
 .employee-form input::-webkit-input-placeholder,
 .employee-form textarea::-webkit-input-placeholder {
   color: #000000 !important;
@@ -360,7 +336,7 @@ body {
   opacity: 1 !important;
 }
 
-/* Firefox */
+
 .employee-form input::-moz-placeholder,
 .employee-form textarea::-moz-placeholder {
   color: #000000 !important;
@@ -368,10 +344,7 @@ body {
   opacity: 1 !important;
 }
 
-/* =========================================================
-   10. EXPLICIT DROPDOWN POPUP LIST OPTIONS REPAIR
-   ========================================================= */
-/* Targets select elements' custom dropdown text popup options safely */
+
 .employee-form select option {
   background-color: #ffffff !important; 
   color: #000000 !important;

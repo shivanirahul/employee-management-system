@@ -19,7 +19,7 @@
 }
 .ev-error { color: #b3273f; }
 
-/* ── Top bar: Back | Avatar+Name | Edit+Delete ── */
+
 .ev-header {
   display: flex;
   align-items: center;
@@ -139,14 +139,14 @@
   margin: 0 0 16px;
 }
 
-/* ── Two-column grid for side-by-side cards (Personal + Contact) ── */
+
 .ev-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
 
-/* ── Field grid inside cards ── */
+
 .ev-grid {
   display: flex;
   flex-direction: column;
@@ -178,7 +178,7 @@
   word-break: break-word;
 }
 
-/* ── Entry cards (Education / Experience rows) ── */
+
 .ev-entry-list {
   display: flex;
   flex-direction: column;
@@ -271,7 +271,7 @@
 }
 .ev-confirm-delete:hover { background: #c53030; }
 
-/* ── Responsive ── */
+
 @media (max-width: 640px) {
   .ev-page { padding: 16px 14px 48px; }
   .ev-row { grid-template-columns: 1fr; }

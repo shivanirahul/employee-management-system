@@ -10,7 +10,7 @@ export default function EmployeeAdd() {
   const handleSubmit = async (formData) => {
     try {
       await createEmployee(formData);
-      navigate('/employees'); // redirect to list after success
+      navigate('/employees'); 
     } catch (err) {
       setBackendError(err.response?.data?.message || 'Failed to save employee.');
     }
