@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCountries, getDesignations, getCourses, getSpecializations, getInstitutions, getCompanies } from '../../services/masterService';
 import './index.css';
+
 const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   const [formData, setFormData] = useState({
     firstName:     initialData?.firstName     || '',
@@ -128,11 +129,11 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
         Institution:    e.institution || undefined,
         Grade:          e.grade ? Number(e.grade) : undefined,
   })),
-  WorkExperience: workExperience.map(({ id, ...w }) => ({
-  Company:         w.company || undefined,
-  LastDesignation: w.lastDesignation || undefined,
-  DurationMonths:  w.duration ? Number(w.duration) : undefined,
-  Remarks:         w.remarks,
+      WorkExperience: workExperience.map(({ id, ...w }) => ({
+        Company:         w.company || undefined,
+        LastDesignation: w.lastDesignation || undefined,
+        DurationMonths:  w.duration ? Number(w.duration) : undefined,
+        Remarks:         w.remarks,
   })),
     };
     onSubmit(payload);
@@ -141,7 +142,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   return (
     <form onSubmit={handleSubmit} className="employee-form">
       {backendError && <div className="backend-error-alert">{backendError}</div>}
-      {/* Container row holding the back button tightly next to the title text */}
       <div className="form-header">
         <button type="button" className="back-btn" onClick={() => window.history.back()}>
           ← Back

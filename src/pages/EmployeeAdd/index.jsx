@@ -11,9 +11,17 @@ export default function EmployeeAdd() {
   const handleSubmit = async (formData) => {
     try {
       await createEmployee(formData);
+<<<<<<< HEAD
       alert("Employee added successfully!");
       navigate('/employees'); 
     } catch (err) {
+=======
+      navigate('/employees', { 
+     state: { successMessage: 'Employee added successfully!' } 
+  });
+  }
+    catch (err) {
+>>>>>>> origin/aruni/feat_complex
       setBackendError(err.response?.data?.message || 'Failed to save employee.');
     }
   };
