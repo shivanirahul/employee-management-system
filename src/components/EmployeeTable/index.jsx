@@ -6,12 +6,6 @@ const AVATAR_CLASSES = ["et-avatar-0", "et-avatar-1", "et-avatar-2", "et-avatar-
 const PER_PAGE = 6;
 const initials = (e) => (e.firstName?.[0] || "") + (e.lastName?.[0] || "");
 
-// The card grid uses minmax(260px, 320px) columns with a 16px gap. Rather than
-// a fixed page size, measure how many columns actually fit at the current
-// container width and size each page to exactly two full rows of that — so
-// screens that fit 4 cards per row get pages of 8, screens that fit 2 per row
-// get pages of 4, and the last page never leaves a half-empty row of dead
-// space next to the pagination controls.
 export default function EmployeeTable({ employees = [], onView, onEdit, onDelete }) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("firstName");

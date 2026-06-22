@@ -7,9 +7,6 @@ export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
   const [designationMap, setDesignationMap] = useState({});
 
-  // Fetch the designation list once and build an id -> name lookup.
-  // Adjust the field names (_id / name) below if your designation
-  // documents use different keys.
   const fetchDesignations = async () => {
     try {
       const response = await apiClient.get("/api/designations");
