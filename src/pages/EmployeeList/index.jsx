@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import EmployeeTable from "../../components/EmployeeTable";
 import apiClient from "../../services/api";
 import Layout from "../../components/Layout/Layout";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function EmployeeList() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [successMessage, setSuccessMessage] = useState("");
   const [employees, setEmployees] = useState([]);
   const [designationMap, setDesignationMap] = useState({});
   const [showConfirm, setShowConfirm] = useState(false);
@@ -74,8 +76,25 @@ export default function EmployeeList() {
     loadAll();
   }, []);
 
+  useEffect(() => {
+  if (location.state?.successMessage) {
+    setSuccessMessage(location.state.successMessage);
+
+    const timer = setTimeout(() => {
+      setSuccessMessage('');
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }
+}, [location]);
+
   return (
     <Layout>
+      {successMessage && (
+  <div className="success-alert">
+    {successMessage}
+  </div>
+)}
       <div className="employee-hero">
         <div className="hero-content">
           <h1>Employee List</h1>
