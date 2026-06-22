@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .employee-form {
   max-width: 880px;
   margin: 0 auto;
@@ -15,7 +14,6 @@ body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   box-sizing: border-box;
 }
-
 .employee-form .form-header {
   display: flex !important;
   align-items: center !important;
@@ -27,13 +25,10 @@ body {
   margin-bottom: 36px !important;     
   width: 100% !important;
 }
-
 .employee-form .form-header .back-btn {
   position: absolute !important;
   left: 4px !important;                
   margin: 0 !important;
-  
-  /* Reset form input styles that leak into button layout */
   height: auto !important;
   width: auto !important;
   background: #ffffff !important;
@@ -51,7 +46,6 @@ body {
   box-shadow: 0 2px 6px rgba(124, 58, 237, 0.06) !important; 
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
-
 .employee-form .form-header .back-btn:hover {
   color: #000000 !important; 
   border-color: #d9c2f5 !important;
@@ -59,11 +53,9 @@ body {
   transform: translateX(-2px) !important; 
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16) !important; 
 }
-
 .employee-form .form-header .back-btn:active {
   transform: translateX(0) !important;
 }
-
 .employee-form .form-header h2 {
   font-size: 26px !important;
   color: #2a1b54 !important;
@@ -73,8 +65,6 @@ body {
   align-items: center !important;
   text-align: center !important;
 }
-
-
 .employee-form .form-section {
   background-color: #ffffff !important; 
   border: 2px solid #bba3e7 !important; 
@@ -88,7 +78,6 @@ body {
   row-gap: 20px;
   align-items: start;
 }
-
 .form-section > h3 {
   grid-column: 1 / -1;
   font-size: 16px;
@@ -98,8 +87,6 @@ body {
   padding-bottom: 16px;
   border-bottom: 1px solid #e7e0f5;
 }
-
-/* Dynamic Add Button Inside Subcard Groups */
 .form-section > button[type='button'] {
   grid-column: 1 / -1;
   justify-self: end;
@@ -120,7 +107,6 @@ body {
   box-shadow: 0 2px 6px rgba(124, 58, 237, 0.06);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .form-section > button[type='button']:hover {
   color: #6d28d9; 
   border-color: #d9c2f5; 
@@ -128,15 +114,11 @@ body {
   transform: translateY(-1px); 
   box-shadow: 0 4px 12px rgba(124, 58, 237, 0.16); 
 }
-
-
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-
-
 .employee-form .form-group label {
   font-size: 16px !important;       
   font-weight: 600 !important;       
@@ -146,8 +128,6 @@ body {
   margin-bottom: 6px !important;
   display: block;
 }
-
-/* Symmetrical Textboxes Styled in Soft Light Purple Palette */
 .form-section input,
 .form-section select,
 .form-section textarea,
@@ -168,13 +148,10 @@ body {
   box-sizing: border-box !important;
   transition: all 0.2s ease-in-out !important;
 }
-
 .form-section textarea {
   height: auto !important;
   min-height: 80px !important;
 }
-
-
 .form-section input:focus,
 .form-section select:focus,
 .form-section textarea:focus {
@@ -182,8 +159,6 @@ body {
   border-color: #7c3aed !important;
   box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14) !important; 
 }
-
-
 .form-group:has(> strong) {
   grid-column: 1 / -1;
   background: #ffffff;
@@ -196,7 +171,6 @@ body {
   align-items: center;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
 }
-
 .employee-form .form-group strong {
   grid-column: 1;
   font-size: 16px !important;       
@@ -205,8 +179,6 @@ body {
   display: inline-block !important;
   margin-bottom: 8px !important;
 }
-
-
 .form-group > button[type='button'] {
   grid-column: 2;
   justify-self: end;
@@ -229,7 +201,6 @@ body {
   box-shadow: 0 2px 6px rgba(168, 85, 247, 0.04);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .form-group > button[type='button']:hover {
   color: #e0556b !important; 
   border-color: #f5c2cb !important; 
@@ -238,7 +209,6 @@ body {
   box-shadow: 0 4px 12px rgba(224, 85, 107, 0.16) !important; 
   text-shadow: -0.4px -0.4px 0 #e0556b, 0.4px -0.4px 0 #e0556b, -0.4px 0.4px 0 #e0556b, 0.4px 0.4px 0 #e0556b;
 }
-
 .form-group:has(> strong) label {
   grid-column: 1;
   font-size: 16px !important;
@@ -247,14 +217,11 @@ body {
   text-transform: none !important;
   letter-spacing: 0em !important;
 }
-
 .form-group:has(> strong) input,
 .form-group:has(> strong) select,
 .form-group:has(> strong) textarea {
   grid-column: 2;
 }
-
-
 .employee-form .empty-notice-text {
   display: block !important;
   width: 100% !important;
@@ -266,8 +233,6 @@ body {
   margin: 16px 0 !important;
   clear: both !important;
 }
-
-
 .submit-button {
   align-self: flex-end;
   background: linear-gradient(135deg, #7c3aed, #6d28d9);
@@ -281,13 +246,10 @@ body {
   box-shadow: 0 6px 20px rgba(124, 58, 237, 0.2);
   transition: all 0.15s ease;
 }
-
 .submit-button:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(124, 58, 237, 0.26);
 }
-
-
 .employee-form .error-text {
   color: #dc2626 !important;        
   font-weight: 700 !important;        
@@ -296,16 +258,12 @@ body {
   display: block !important;
   text-align: left !important;      
 }
-
-
 .employee-form input.input-error,
 .employee-form select.input-error,
 .employee-form textarea.input-error {
   border: 1.5px solid #dc2626 !important;
   background-color: #fff5f6 !important; 
 }
-
-
 @media (max-width: 640px) {
   .employee-form .form-section,
   .form-group:has(> strong) {
@@ -319,34 +277,26 @@ body {
     grid-column: 1 / -1;
   }
 }
-
-
 .employee-form input::placeholder,
 .employee-form textarea::placeholder {
   color: #000000 !important;
   font-weight: 400 !important; 
   opacity: 1 !important; 
 }
-
-
 .employee-form input::-webkit-input-placeholder,
 .employee-form textarea::-webkit-input-placeholder {
   color: #000000 !important;
   font-weight: 400 !important;
   opacity: 1 !important;
 }
-
-
 .employee-form input::-moz-placeholder,
 .employee-form textarea::-moz-placeholder {
   color: #000000 !important;
   font-weight: 400 !important;
   opacity: 1 !important;
 }
-
-
 .employee-form select option {
   background-color: #ffffff !important; 
   color: #000000 !important;
   font-weight: 400 !important;
-}
+} 

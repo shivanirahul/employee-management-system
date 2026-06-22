@@ -66,22 +66,18 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .ev-name {
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 2px;
   color: #1e1144;
 }
-
 .ev-sub {
   font-size: 13px;
   color: #7c3aed;
   margin: 0;
   font-weight: 500;
 }
-
-/* Edit + Delete group */
 .ev-action-group {
   display: flex;
   align-items: center;
@@ -89,7 +85,6 @@
   margin-left: auto;
   flex-shrink: 0;
 }
-
 .ev-edit-btn {
   background: #ffffff;
   color: #5b3db5;
@@ -105,7 +100,6 @@
   gap: 6px;
 }
 .ev-edit-btn:hover { background: #f3eafe; }
-
 .ev-delete-btn {
   background: #ffffff;
   color: #c0392b;
@@ -121,15 +115,63 @@
   gap: 6px;
 }
 .ev-delete-btn:hover { background: #fff0f0; }
-
-/* ── Cards ── */
 .ev-card {
   background: #ffffff;
   border-radius: 16px;
-  border: 1px solid #ddd3f5;
+  border: 2px solid #5b3db5; 
+  padding: 32px 36px; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(91, 61, 181, 0.06);
+}
+.ev-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(91, 61, 181, 0.12);
+  border-color: #432994;
+}
+.ev-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5b3db5;
+  margin: 0 0 24px; 
+}
+.ev-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+.ev-entry-card {
+  background: #fdfbff;
+  border: 1px solid #c4b5f0; 
+  border-radius: 12px;
   padding: 22px 26px;
 }
-
+.ev-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px; 
+  align-items: stretch; 
+}
+.ev-section-title {
+  font-size: 13px; 
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin: 0 0 20px; 
+}
+.ev-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; 
+}
+.ev-entry-card {
+  background: #fdfbff;
+  border: 1px solid #e2dbf7; 
+  border-radius: 12px;
+  padding: 20px 24px;
+}
 .ev-section-title {
   font-size: 12px;
   font-weight: 700;
@@ -138,38 +180,30 @@
   color: #7c3aed;
   margin: 0 0 16px;
 }
-
-
 .ev-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
-
-
 .ev-grid {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-
 .ev-field {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 8px;
 }
-
 .ev-field-full {
   grid-column: 1 / -1;
 }
-
 .ev-label {
   font-size: 13px;
   color: #6b6680;
   flex-shrink: 0;
 }
-
 .ev-value {
   font-size: 13px;
   color: #1e1144;
@@ -177,21 +211,17 @@
   text-align: right;
   word-break: break-word;
 }
-
-
 .ev-entry-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .ev-entry-card {
   background: #f8f5fe;
   border: 1px solid #e4d9f8;
   border-radius: 12px;
   padding: 16px 20px;
 }
-
 .ev-entry-label {
   font-size: 12px;
   font-weight: 700;
@@ -200,15 +230,12 @@
   text-transform: uppercase;
   margin-bottom: 12px;
 }
-
 .ev-empty {
   color: #9089a8;
   font-style: italic;
   font-size: 13px;
   margin: 0;
 }
-
-/* ── Delete confirm overlay ── */
 .ev-confirm-overlay {
   position: fixed;
   inset: 0;
@@ -218,7 +245,6 @@
   justify-content: center;
   z-index: 999;
 }
-
 .ev-confirm-box {
   background: #fff;
   border-radius: 16px;
@@ -228,26 +254,22 @@
   text-align: center;
   box-shadow: 0 8px 32px rgba(124, 58, 237, 0.18);
 }
-
 .ev-confirm-box h3 {
   font-size: 17px;
   font-weight: 700;
   color: #1e1144;
   margin: 0 0 10px;
 }
-
 .ev-confirm-box p {
   font-size: 14px;
   color: #6b6680;
   margin: 0 0 24px;
 }
-
 .ev-confirm-actions {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
-
 .ev-confirm-cancel {
   background: #f3eafe;
   border: 1px solid #d4c8f0;
@@ -258,7 +280,6 @@
   border-radius: 9px;
   cursor: pointer;
 }
-
 .ev-confirm-delete {
   background: #e53e3e;
   border: none;
@@ -270,8 +291,6 @@
   cursor: pointer;
 }
 .ev-confirm-delete:hover { background: #c53030; }
-
-
 @media (max-width: 640px) {
   .ev-page { padding: 16px 14px 48px; }
   .ev-row { grid-template-columns: 1fr; }

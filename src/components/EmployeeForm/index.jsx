@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getCountries, getDesignations, getCourses, getSpecializations, getInstitutions, getCompanies } from '../../services/masterService';
 import './index.css';
-
 const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   const [formData, setFormData] = useState({
     firstName:     initialData?.firstName     || '',
@@ -16,7 +15,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
     designationId: initialData?.designationId || '',
     salary:        initialData?.salary        || ''
   });
-
   const [countries, setCountries] = useState([]);
   const [designations, setDesignations] = useState([]);
   const [courses, setCourses] = useState([]);
@@ -26,7 +24,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   const [errors, setErrors] = useState({});
   const [education, setEducation] = useState(initialData?.education || []);
   const [workExperience, setWorkExperience] = useState(initialData?.workExperience || []);
-
   useEffect(() => {
     const fetchLookups = async () => {
       try {
@@ -39,23 +36,19 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           getInstitutions(),
           getCompanies()
         ]);
-
         console.log("--- API RAW RESPONSE SUCCESS ---");
-        
         const cData = countriesRes?.data?.data || countriesRes?.data || countriesRes || [];
         const dData = designationsRes?.data?.data || designationsRes?.data || designationsRes || [];
         const courseData = coursesRes?.data?.data || coursesRes?.data || coursesRes || [];
         const specData = specializationsRes?.data?.data || specializationsRes?.data || specializationsRes || [];
         const instData = institutionsRes?.data?.data || institutionsRes?.data || institutionsRes || [];
         const compData = companiesRes?.data?.data || companiesRes?.data || companiesRes || [];
-
         const finalCourses = Array.isArray(courseData) ? courseData : (courseData.courses || courseData.data || []);
         const finalSpecializations = Array.isArray(specData) ? specData : (specData.specializations || specData.data || []);
         const finalInstitutions = Array.isArray(instData) ? instData : (instData.institutions || instData.data || []);
         const finalCompanies = Array.isArray(compData) ? compData : (compData.companies || compData.data || []);
         const finalCountries = Array.isArray(cData) ? cData : (cData.countries || cData.data || []);
         const finalDesignations = Array.isArray(dData) ? dData : (dData.designations || dData.data || []);
-
         setCountries(finalCountries);
         setDesignations(finalDesignations);
         setCourses(finalCourses);
@@ -102,22 +95,18 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
     setWorkExperience((prev) => prev.map((e) => (e.id === id ? { ...e, [field]: value } : e)));
 
   const validateForm = () => {
-    const tempErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+  const tempErrors = {};
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.firstName.trim()) tempErrors.firstName = 'First Name is required';
     if (!formData.lastName.trim()) tempErrors.lastName = 'Last Name is required';
-
     if (!formData.email.trim()) {
       tempErrors.email = 'Email is required';
     } else if (!emailRegex.test(formData.email)) {
       tempErrors.email = 'Invalid email format';
     }
-
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
-
   const handleSubmit = (e) => {
   e.preventDefault();
   if (validateForm()) {
@@ -133,14 +122,12 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
       Country:     formData.countryId || undefined,
       Designation: formData.designationId || undefined,
       BasicPay:      Number(formData.salary),
-
       Education: education.map(({ id, ...e }) => ({
         Course:         e.course || undefined,
         Specialization: e.specialization || undefined,
         Institution:    e.institution || undefined,
         Grade:          e.grade ? Number(e.grade) : undefined,
   })),
-
   WorkExperience: workExperience.map(({ id, ...w }) => ({
   Company:         w.company || undefined,
   LastDesignation: w.lastDesignation || undefined,
@@ -148,14 +135,12 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   Remarks:         w.remarks,
   })),
     };
-
     onSubmit(payload);
   }
 };
   return (
     <form onSubmit={handleSubmit} className="employee-form">
       {backendError && <div className="backend-error-alert">{backendError}</div>}
-      
       {/* Container row holding the back button tightly next to the title text */}
       <div className="form-header">
         <button type="button" className="back-btn" onClick={() => window.history.back()}>
@@ -163,8 +148,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
         </button>
         <h2>{isEditMode ? 'Edit Employee' : 'Add New Employee'}</h2>
       </div>
-
-      {/* Personal Information */}
       <div className="form-section">
         <h3> Personal Information</h3>
         <div className="form-group">
@@ -210,8 +193,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           {errors.dob && <span className="error-text">{errors.dob}</span>}
         </div>
       </div>
-
-      {/* Contact Information */}
       <div className="form-section">
         <h3> Contact Information</h3>
         <div className="form-group">
@@ -226,14 +207,11 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           />
           {errors.email && <span className="error-text">{errors.email}</span>}
         </div>
-        
         <div className="form-group">
           <label>Phone Number </label>
           <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
           {errors.phone && <span className="error-text">{errors.phone}</span>}
         </div>
-
-        {/* --- Added Postal Address --- */}
         <div className="form-group">
           <label>Postal Address </label>
           <input 
@@ -244,8 +222,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
             onChange={handleChange} 
           />
         </div>
-
-        {/* --- Added City --- */}
         <div className="form-group">
           <label>City </label>
           <input 
@@ -256,7 +232,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
             onChange={handleChange} 
           />
         </div>
-
         <div className="form-group">
           <label>Country</label>
           <select 
@@ -273,8 +248,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           </select>
         </div>
       </div>
-
-      {/* Employment Information */}
       <div className="form-section">
         <h3> Employment Information</h3>
         <div className="form-group">
@@ -292,7 +265,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
             ))}
           </select>
         </div>
-        
         <div className="form-group">
           <label>Basic Pay </label>
           <input 
@@ -306,12 +278,9 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           {errors.salary && <span className="error-text">{errors.salary}</span>}
         </div>
       </div>
-
-      {/* Education */}
       <div className="form-section">
         <h3>Education</h3>
         <button type="button" onClick={addEducation}>+ Add</button>
-
         {education.length === 0 && (
           <p className="empty-notice-text">No education records yet. Click Add to include one.</p>
         )}
@@ -319,7 +288,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           <div className="form-group" key={edu.id}>
             <strong>Education #{index + 1}</strong>{' '}
             <button type="button" onClick={() => removeEducation(edu.id)}>🗑</button>
-
             <label>Course</label>
             <select value={edu.course} onChange={(e) => updateEducation(edu.id, 'course', e.target.value)}>
               <option value="">Select Course</option>
@@ -329,7 +297,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
                 </option>
               ))}
             </select>
-
             <label>Specialization</label>
             <select value={edu.specialization} onChange={(e) => updateEducation(edu.id, 'specialization', e.target.value)}>
               <option value="">Select Specialization</option>
@@ -339,7 +306,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
                 </option>
               ))}
             </select>
-
             <label>Institution</label>
             <select value={edu.institution} onChange={(e) => updateEducation(edu.id, 'institution', e.target.value)}>
               <option value="">Select Institution</option>
@@ -349,7 +315,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
                 </option>
               ))}
             </select>
-
             <label>Grade / CGPA</label>
             <input
               type="text"
@@ -360,21 +325,16 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           </div>
         ))}
       </div>
-
-      {/* Work Experience */}
       <div className="form-section">
         <h3> Work Experience</h3>
         <button type="button" onClick={addExperience}>+ Add</button>
-
         {workExperience.length === 0 && (
           <p className="empty-notice-text">No work experience yet. Click Add to include one.</p>
         )}
-
         {workExperience.map((exp, index) => (
           <div className="form-group" key={exp.id}>
             <strong>Experience #{index + 1}</strong>{' '}
             <button type="button" onClick={() => removeExperience(exp.id)}>🗑</button>
-
             <label>Company</label>
             <select value={exp.company} onChange={(e) => updateExperience(exp.id, 'company', e.target.value)}>
               <option value="">Select Company</option>
@@ -384,7 +344,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
                 </option>
               ))}
             </select>
-
             <label>Last Designation</label>
             <input
               type="text"
@@ -392,7 +351,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
               value={exp.lastDesignation}
               onChange={(e) => updateExperience(exp.id, 'lastDesignation', e.target.value)}
             />
-
             <label>Duration (Months)</label>
             <input
               type="number"
@@ -400,7 +358,6 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
               value={exp.duration}
               onChange={(e) => updateExperience(exp.id, 'duration', e.target.value)}
             />
-
             <label>Remarks</label>
             <textarea
               placeholder="Any notes about this role..."
@@ -410,11 +367,9 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
           </div>
         ))}
       </div>
-
       <button type="submit" className="submit-button">{isEditMode ? 'Update Employee' : 'Save Employee'}
       </button>
     </form>
   );
 };
-
 export default EmployeeForm;

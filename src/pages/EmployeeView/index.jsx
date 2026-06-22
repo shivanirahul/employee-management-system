@@ -88,7 +88,7 @@ export default function EmployeeView() {
   return (
     <div className="ev-page">
 
-      {/* Delete confirm dialog */}
+      
       {showConfirm && (
         <div className="ev-confirm-overlay">
           <div className="ev-confirm-box">
@@ -104,7 +104,7 @@ export default function EmployeeView() {
         </div>
       )}
 
-      {/* ── Header ── */}
+     
       <div className="ev-header">
         <button className="ev-back-btn" onClick={() => navigate(-1)}>← Back</button>
 
@@ -128,7 +128,7 @@ export default function EmployeeView() {
         </div>
       </div>
 
-      {/* ── Personal + Contact side by side ── */}
+     
       <div className="ev-row">
         <div className="ev-card">
           <div className="ev-section-title">Personal</div>
@@ -183,7 +183,7 @@ export default function EmployeeView() {
         </div>
       </div>
 
-      {/* ── Education ── */}
+      
       <div className="ev-card">
         <div className="ev-section-title">Education</div>
         {(!emp.Education || emp.Education.length === 0) ? (
@@ -217,7 +217,7 @@ export default function EmployeeView() {
         )}
       </div>
 
-      {/* ── Work Experience ── */}
+      
       <div className="ev-card">
         <div className="ev-section-title">Work Experience</div>
         {(!emp.WorkExperience || emp.WorkExperience.length === 0) ? (
