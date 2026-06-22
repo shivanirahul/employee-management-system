@@ -3,13 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import EmployeeForm from '../../components/EmployeeForm';
 import { getEmployeeById, updateEmployee } from '../../services/employeeService';
 
-// Maps the API response (PascalCase) back to the form's shape (camelCase)
-// This is the reverse of what handleSubmit does when sending to the backend
+
 const mapApiToForm = (emp) => ({
   firstName:     emp.FirstName      || '',
   lastName:      emp.LastName       || '',
   gender:        emp.Gender         || '',
-  dob:           emp.DOB ? emp.DOB.split('T')[0] : '',   // "1997-06-10T00:00:00.000Z" → "1997-06-10"
+  dob:           emp.DOB ? emp.DOB.split('T')[0] : '',   
   email:         emp.PersonalEmail  || '',
   phone:         emp.MobileNumber   || '',
   postalAddress: emp.PostalAddress  || '',
@@ -19,8 +18,7 @@ const mapApiToForm = (emp) => ({
   joiningDate:   emp.JoiningDate ? emp.JoiningDate.split('T')[0] : '',
   salary:        emp.BasicPay       || '',
 
-  // Education rows — map back to your form's internal shape
-  // generateId gives each row a local id so add/remove still works
+  
   education: (emp.Education || []).map((edu) => ({
     id:             `edu-prefill-${edu._id}`,
     course:         edu.Course         || '',
@@ -29,7 +27,7 @@ const mapApiToForm = (emp) => ({
     grade:          edu.Grade != null ? String(edu.Grade) : '',
   })),
 
-  // Work experience rows
+  
   workExperience: (emp.WorkExperience || []).map((exp) => ({
     id:              `exp-prefill-${exp._id}`,
     company:         exp.Company         || '',
@@ -48,7 +46,7 @@ export default function EmployeeEdit() {
   const [fetchError, setFetchError] = useState('');
   const [backendError, setBackendError] = useState('');
 
-  // Fetch existing employee on mount and map to form shape
+  
   useEffect(() => {
     const load = async () => {
       try {
@@ -65,12 +63,14 @@ export default function EmployeeEdit() {
     load();
   }, [id]);
 
-  // Called by EmployeeForm's handleSubmit — payload is already PascalCase mapped
+  
   const handleSubmit = async (payload) => {
     try {
       setBackendError('');
-      await updateEmployee(id, payload);
-      navigate(`/employees/view/${id}`);
+     await updateEmployee(id, payload);
+    navigate(`/employees/view/${id}`, { 
+    state: { successMessage: 'Employee updated successfully!' } 
+  });
     } catch (err) {
       console.error('EmployeeEdit update error:', err);
       setBackendError(

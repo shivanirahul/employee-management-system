@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { getCountries, getDesignations, getCourses, getSpecializations, getInstitutions, getCompanies } from '../../services/masterService';
 import { getEmployeeById } from '../../services/employeeService';
 import apiClient from '../../services/api';
@@ -20,6 +20,8 @@ const formatDate = (iso) => {
 export default function EmployeeView() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [successMessage, setSuccessMessage] = useState('');
 
   const [employee, setEmployee] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -33,6 +35,18 @@ export default function EmployeeView() {
   const [specializations, setSpecializations] = useState([]);
   const [institutions, setInstitutions] = useState([]);
   const [companies, setCompanies] = useState([]);
+
+  useEffect(() => {
+  if (location.state?.successMessage) {
+    setSuccessMessage(location.state.successMessage);
+
+    const timer = setTimeout(() => {
+      setSuccessMessage('');
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }
+  }, [location]);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -87,8 +101,7 @@ export default function EmployeeView() {
 
   return (
     <div className="ev-page">
-
-      
+      {successMessage && <div className="success-alert">{successMessage}</div>}
       {showConfirm && (
         <div className="ev-confirm-overlay">
           <div className="ev-confirm-box">
@@ -106,7 +119,7 @@ export default function EmployeeView() {
 
      
       <div className="ev-header">
-        <button className="ev-back-btn" onClick={() => navigate(-1)}>← Back</button>
+        <button className="ev-back-btn" onClick={() => navigate(`/employees`)}>← Back</button>
 
         <div className="ev-title-block">
           <div className="ev-avatar">{emp.FirstName?.[0]}{emp.LastName?.[0]}</div>

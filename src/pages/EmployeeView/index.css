@@ -10,6 +10,15 @@
   box-sizing: border-box;
 }
 
+.success-alert {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
 .ev-loading,
 .ev-error {
   text-align: center;
