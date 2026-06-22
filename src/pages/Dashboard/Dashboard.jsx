@@ -282,8 +282,8 @@ const Dashboard = () => {
                 data: Object.values(genderCounts),
                 backgroundColor: [
                   "#ec4899",
-                  "#94a3b8",
                   "#3b82f6",
+                  "#94a3b8",
                 ],
                 borderWidth: 0,
               },
