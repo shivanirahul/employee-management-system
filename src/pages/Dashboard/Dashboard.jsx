@@ -249,7 +249,7 @@ const Dashboard = () => {
 
               <Panel title="Quick Actions">
                 <div className="quick-actions-list">
-                  <button className="quick-action-btn" onClick={() => navigate("/add-employee")}>
+                  <button className="quick-action-btn" onClick={() => navigate("/employees/add")}>
                     <span className="quick-action-icon">➕</span>
                     Add Employee
                   </button>
