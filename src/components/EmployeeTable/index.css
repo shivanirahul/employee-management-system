@@ -1,4 +1,4 @@
-/* EmployeeTable styles */
+
 
 :root {
   --et-purple: #7c3aed;
@@ -101,7 +101,6 @@
   background: #f9f5ff;
 }
 
-/* Cards */
 .et-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
