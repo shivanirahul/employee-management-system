@@ -63,16 +63,43 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="footer-section">
+       <div className="footer-section follow-section">
           <h3>Follow Us</h3>
 
           <div className="social-icons">
-            <span><FaFacebookF /></span>
-            <span><FaTwitter /></span>
-            <span><FaLinkedinIn /></span>
-            <span><FaInstagram /></span>
-          </div>
-        </div>
+  <a
+    href="https://www.facebook.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span><FaFacebookF /></span>
+  </a>
+
+  <a
+    href="https://x.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span><FaTwitter /></span>
+  </a>
+
+  <a
+    href="https://www.linkedin.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span><FaLinkedinIn /></span>
+  </a>
+
+  <a
+    href="https://www.instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span><FaInstagram /></span>
+  </a>
+</div>
+</div>
 
       </div>
 
