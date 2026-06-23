@@ -38,11 +38,6 @@ function greetingForNow() {
 const AVATAR_CLASSES = ["avatar-0", "avatar-1", "avatar-2", "avatar-3", "avatar-4"];
 const BADGE_CLASS = { Male: "badge-male", Female: "badge-female" };
 
-const ANNOUNCEMENTS = [
-  { text: "New employee onboarding checklist updated.", time: "2 days ago" },
-  { text: "Office will be closed for the upcoming public holiday.", time: "4 days ago" },
-  { text: "Please update your profile details if anything has changed.", time: "1 week ago" },
-];
 
 
 function useCountUp(target, duration = 700) {
@@ -114,6 +109,45 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const [announcementInput, setAnnouncementInput] = useState("");
+
+const [announcements, setAnnouncements] = useState(() => {
+  const saved = localStorage.getItem("announcements");
+
+  return saved
+    ? JSON.parse(saved)
+    : [
+        {
+          text: "New employee onboarding checklist updated.",
+          time: "Default",
+        },
+      ];
+});
+
+  const addAnnouncement = () => {
+  if (!announcementInput.trim()) return;
+
+  const newAnnouncement = {
+    text: announcementInput,
+    time: new Date().toLocaleString(),
+  };
+
+  const updated = [newAnnouncement, ...announcements];
+  setAnnouncements(updated);
+  localStorage.setItem("announcements", JSON.stringify(updated));
+  setAnnouncementInput("");
+};
+
+  const deleteAnnouncement = (indexToDelete) => {
+  const updated = announcements.filter(
+    (_, index) => index !== indexToDelete
+  );
+
+  setAnnouncements(updated);
+  localStorage.setItem("announcements", JSON.stringify(updated));
+
+};
+
   useEffect(() => {
     const fetchEmployees = async () => {
       setLoading(true);
@@ -149,10 +183,10 @@ const Dashboard = () => {
     .slice(0, 4);
 
   const genderCounts = employees.reduce((acc, emp) => {
-    const key = emp.gender || "Other";
-    acc[key] = (acc[key] || 0) + 1;
-    return acc;
-  }, {});
+  const key = emp.gender || "Not Defined";
+  acc[key] = (acc[key] || 0) + 1;
+  return acc;
+}, {});
   const totalForGender = employees.length || 1;
 
   const cityCounts = employees.reduce((acc, emp) => {
@@ -284,6 +318,7 @@ const Dashboard = () => {
                   "#ec4899",
                   "#94a3b8",
                   "#3b82f6",
+                  "#f59e0b",
                 ],
                 borderWidth: 0,
               },
@@ -310,10 +345,12 @@ const Dashboard = () => {
                 <span
                   className={`gender-dot ${
                     gender === "Female"
-                      ? "female-dot"
-                      : gender === "Male"
-                      ? "male-dot"
-                      : "other-dot"
+                    ? "female-dot"
+                    : gender === "Male"
+                    ? "male-dot"
+                    : gender === "Not Defined"
+                    ? "undefined-dot"
+                    : "other-dot"
                   }`}
                 />
                 <span>{gender}</span>
@@ -332,15 +369,42 @@ const Dashboard = () => {
 <div className="dashboard-grid dashboard-grid-secondary">
   <Panel title="Announcements">
     <div className="announcement-list">
-      {ANNOUNCEMENTS.map((a, i) => (
-        <div key={i} className="announcement-row">
-          <span className="announcement-dot" />
-          <div className="announcement-text">
-            {a.text}
-            <span className="announcement-time">{a.time}</span>
-          </div>
-        </div>
-      ))}
+      <div className="announcement-input-section">
+  <input
+    type="text"
+    value={announcementInput}
+    onChange={(e) => setAnnouncementInput(e.target.value)}
+    placeholder="Type announcement..."
+    className="announcement-input"
+  />
+
+  <button
+    className="announcement-add-btn"
+    onClick={addAnnouncement}
+  >
+    Add
+  </button>
+</div>
+
+<div className="announcement-items">
+  {announcements.map((a, i) => (
+    <div key={i} className="announcement-row">
+      <span className="announcement-dot" />
+      <div className="announcement-text">
+        {a.text}
+        <span className="announcement-time">{a.time}</span>
+      </div>
+
+      <button
+    className="announcement-delete-btn"
+    onClick={() => deleteAnnouncement(i)}
+  >
+    ✕
+  </button>
+
+    </div>
+  ))}
+</div>
     </div>
   </Panel>
 
