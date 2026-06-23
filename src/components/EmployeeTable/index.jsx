@@ -21,9 +21,15 @@ export default function EmployeeTable({ employees = [], onView, onEdit, onDelete
       .includes(search.toLowerCase());
   })
     .sort((a, b) => {
-      const cmp = (a[sortBy] || "").localeCompare(b[sortBy] || "");
-      return sortDir === "asc" ? cmp : -cmp;
-    });
+  const aVal = a[sortBy];
+  const bVal = b[sortBy];
+
+  if (!aVal) return 1;
+  if (!bVal) return -1;
+
+  const cmp = aVal.localeCompare(bVal);
+  return sortDir === "asc" ? cmp : -cmp;
+});
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
   const cur = Math.min(page, totalPages);
