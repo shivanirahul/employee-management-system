@@ -397,6 +397,10 @@ body {
   background: #94a3b8;
 }
 
+.undefined-dot {
+  background: #f59e0b;
+}
+
 
 
 .city-list {
@@ -558,4 +562,76 @@ body {
   .bday-date-cell {
     text-align: left;
   }
+}
+
+.announcement-input-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.announcement-input {
+  flex: 1;
+  border: 1px solid #ede9fe;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.announcement-add-btn {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.announcement-add-btn:hover {
+  background: #6d28d9;
+}
+
+.announcement-input:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.announcement-list {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 14px;
+}
+
+.announcement-delete-btn {
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.announcement-delete-btn:hover {
+  color: #dc2626;
+}
+
+.announcement-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.announcement-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.announcement-text {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }

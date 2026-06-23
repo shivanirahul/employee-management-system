@@ -13,7 +13,13 @@ export default function EmployeeTable({ employees = [], onView, onEdit, onDelete
   const [page, setPage] = useState(1);
 
   const filtered = employees
-    .filter((e) => Object.values(e).some((v) => String(v).toLowerCase().includes(search.toLowerCase())))
+  .filter((e) => {
+    if (!search.trim()) return true;
+
+    return String(e[sortBy] || "")
+      .toLowerCase()
+      .includes(search.toLowerCase());
+  })
     .sort((a, b) => {
       const cmp = (a[sortBy] || "").localeCompare(b[sortBy] || "");
       return sortDir === "asc" ? cmp : -cmp;
