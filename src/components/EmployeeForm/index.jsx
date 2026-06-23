@@ -98,8 +98,24 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
   const validateForm = () => {
   const tempErrors = {};
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.firstName.trim()) tempErrors.firstName = 'First Name is required';
-    if (!formData.lastName.trim()) tempErrors.lastName = 'Last Name is required';
+  const nameRegex = /^[a-zA-Z]+$/;
+
+   if (!formData.firstName.trim()) {
+    tempErrors.firstName = 'First Name is required';
+   } else if (!nameRegex.test(formData.firstName.trim())) {
+    tempErrors.firstName = 'First Name must contain only letters (no spaces or special characters)';
+   }
+
+   if (!formData.lastName.trim()) {
+     tempErrors.lastName = 'Last Name is required';
+   } else if (!nameRegex.test(formData.lastName.trim())) {
+     tempErrors.lastName = 'Last Name must contain only letters (no spaces or special characters)';
+   }
+
+   if (!formData.gender) {
+     tempErrors.gender = 'Gender is required';
+   }
+
     if (!formData.email.trim()) {
       tempErrors.email = 'Email is required';
     } else if (!emailRegex.test(formData.email)) {
@@ -157,35 +173,43 @@ const EmployeeForm = ({ onSubmit, backendError, initialData, isEditMode }) => {
             name="firstName" 
             placeholder="e.g. Jennifer"
             value={formData.firstName} 
-            onChange={handleChange} 
+            onChange={handleChange}
+            onKeyDown={(e) => {
+            if (e.key === ' ' || e.key === '.') e.preventDefault();
+            }}
             className={errors.firstName ? 'input-error' : ''} 
-          />
+            />
           {errors.firstName && <span className="error-text">{errors.firstName}</span>}
         </div>
         <div className="form-group">
           <label>Last Name <span style={{ color: '#dc2626' }}>*</span></label>
           <input 
-            type="text" 
-            name="lastName" 
-            placeholder="e.g. Doe"
-            value={formData.lastName} 
-            onChange={handleChange} 
-            className={errors.lastName ? 'input-error' : ''} 
+           type="text" 
+          name="lastName" 
+          placeholder="e.g. Doe"
+          value={formData.lastName} 
+          onChange={handleChange}
+          onKeyDown={(e) => {
+          if (e.key === ' ' || e.key === '.') e.preventDefault();
+          }}
+          className={errors.lastName ? 'input-error' : ''} 
           />
           {errors.lastName && <span className="error-text">{errors.lastName}</span>}
         </div>
         <div className="form-group">
-          <label>Gender</label>
-          <select 
+         <label>Gender <span style={{ color: '#dc2626' }}>*</span></label>
+         <select 
             name="gender" 
             value={formData.gender} 
             onChange={handleChange}
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
+            className={errors.gender ? 'input-error' : ''}
+           >
+           <option value="">Select Gender</option>
+           <option value="Male">Male</option>
+           <option value="Female">Female</option>
+           <option value="Other">Other</option>
+        </select>
+          {errors.gender && <span className="error-text">{errors.gender}</span>}
         </div>
         <div className="form-group">
           <label>Date of Birth </label>
